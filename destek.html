@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="author" content="Jake Rocheleau">
+  <link rel="shortcut icon" href="D:\Çalışılacaklar\HTML Document\Ch5_Resources\Code\Lecture 30\Program Files\blue_developer_done\images\20 dakika.ico">
+  <link rel="icon" href="D:\Çalışılacaklar\HTML Document\Ch5_Resources\Code\Lecture 30\Program Files\blue_developer_done\images\20 dakika.ico">
+  <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <title>20 Dakika Dizisi Kişisel Websitesi</title>
+  <script src="js/jquery-2.0.3.js"></script>
+  <script src="js/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  function initStorage1(){
+	function saveName(){
+		var name = document.getElementById('name');
+		localStorage.setItem('name',name.value);
+	}
+	
+	function saveEmail(){
+		var email = document.getElementById('email');
+		localStorage.setItem('email',email.value);
+	}
+	function saveSubject(){
+		var subject = document.getElementById('subject');
+		localStorage.setItem('subject',subject.value);
+	}
+	function saveMessage(){
+		var message = document.getElementById('message');
+		localStorage.setItem('message',message.value);
+	}
+	//Run functions
+	saveName();
+	saveEmail();
+	saveSubject();
+	saveMessage();
+  }
+  function clearAll(){
+	localStorage.clear();   
+	window.location.reload()
+  }
+  function showHTML() {
+    alert($(this).html())
+  }
+  $(document).ready(function() {
+	$( "#submitbtn" ).hide(5000);
+	$( "#submitbtn" ).show(1000);
+	$( "#submitbtn" ).click(function() {alert("Bilgileriniz kaydedildi.") });
+	localStorage.clear(); 	
+  })
+  function displayAll(){	
+		document.write('Adınız: '+localStorage.getItem('name')+"<br>");
+		document.write('Email adresiniz: '+localStorage.getItem('email')+"<br>");
+		document.write('Konu: '+localStorage.getItem('subject')+"<br>");
+		document.write('Mesaj: '+localStorage.getItem('message')+"<br>");
+  }
+  </script>
+</head>
+<body>
+  <div id="container">
+		<header>
+			<h1><span class="blue-text">İLETİŞİM</span></h1>
+		</header>
+		
+		
+    
+	<section>
+  		<div id="w">
+    		<h1>İLETİŞİM FORMU</h1>
+    			<form id="contactform" name="contact" method="post" action="destek.html" onsubmit="initStorage1()">
+      				<p class="note"><span class="req">*</span> İşaretlenmiş alanların doldurulması zorunludur.</p>
+      				<div class="row">
+        				<label for="name">Adınız <span class="req">*</span></label>
+        				<input type="text" name="name" id="name" class="txt" tabindex="1" placeholder="Muhittin Topalak from Kazlıçeşme" title="Lütfen adınızı giriniz" required>
+      				</div>
+      
+      				<div class="row">
+        				<label for="email">E-mail Adresiniz <span class="req">*</span></label>
+        				<input type="email" name="email" id="email" class="txt" tabindex="2" placeholder="isyankar47@hotmail.com" title="Lütfen email adresinizi giriniz" required>
+      				</div>
+      
+      				<div class="row">
+        				<label for="subject">Konu <span class="req">*</span></label>
+        				<input type="text" name="subject" id="subject" class="txt" tabindex="3" placeholder="İstekleriniz/Önerileriniz/Şikayetleriniz" title="Bizimle iletişime geçmek için bir konu giriniz" required>
+      				</div>
+      
+      				<div class="row">
+        				<label for="message">Mesajınız <span class="req">*</span></label>
+        				<textarea name="message" id="message" class="txtarea" tabindex="4" title="Mesajınızı giriniz" required></textarea>
+      				</div>
+      
+      				<div class="center">
+        				<button id="submitbtn"><a href="#" onClick="clearAll()">Güvercinle Gönder</a></button>
+      				</div>
+    			</form>
+		
+  		</div>
+  		<script type="text/javascript">
+			displayAll();
+  		</script>
+	</section>
+  </div>
+  <footer>
+  	Copyright &copy; 2013, EndLeSs Bilişim &nbsp; Anasayfaya donmek icin <a href="index.html">tiklayiniz</a>
+	<div id="social_media">
+               	Follow us &nbsp;&nbsp;
+                <a href="https://twitter.com/PcEngineer48"><img src="images/icons/twitter_16.png" width="16" height="16" alt="Twitter" /></a>
+                <a href="https://www.facebook.com/sedat.c.uygur?ref=tn_tnmn"><img src="images/icons/facebook_16.png" width="16" height="16" alt="Twitter" /></a>
+                <a href="https://plus.google.com/105760255827149276350/posts"><img src="images/social04.png" width="16" height="16" alt="Twitter" /></a>
+                <a href="www.rss.com"><img src="images/icons/rss_16.png" width="16" height="16" alt="Twitter" /></a>
+        </div>
+  </footer>
+</body>
+</html>
