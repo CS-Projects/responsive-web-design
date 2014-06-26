@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<title>20 Dakika Dizisi Kişisel Websitesi</title>
+<script src="js/jquery-2.0.3.js"></script>
+<script src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.slidertron-1.1.js"></script>
+<script type="text/javascript">
+function initStorage(){
+	function saveName(){
+		var name = document.getElementById('name');
+		localStorage.setItem('name',name.value);
+	}
+	
+	function saveEmail(){
+		var email = document.getElementById('email');
+		localStorage.setItem('email',email.value);
+	}
+	
+	//Run functions
+	saveName();
+	saveEmail();
+}
+
+function displayName(){	
+	if(localStorage.getItem('name') != null){
+		document.write('Welcome Back, '+localStorage.getItem('name'));
+	}
+}
+	
+function showText(){
+	if(localStorage.getItem('email') == null){
+		document.write('<p>Lütfen adınızı ve e-mail adresinizi giriniz.</p>');
+	} else {
+		document.write('<p><strong>Subscribed Email:</strong> '+localStorage.getItem('email')+'</p> ');
+	}
+}
+
+function clearAll(){
+	localStorage.clear();   
+	window.location.reload()
+}
+</script>
+</head>
+<body>
+	<div id="container">
+		<header>
+			<div id="logo">
+       	    			<a href="#"><img src="images/20 dakika1.jpg" alt="" /></a>
+            		</div>
+			<h1><span class="blue-text">20 Dakika</span> Dizisi Hakkında Herşey</h1>
+			<h2><a href="register.html"> Kayıt Ol</h2>
+			<div id="social_media">
+               			<a href="#">Follow us</a>&nbsp;&nbsp;
+                		<a href="https://twitter.com/PcEngineer48"><img src="images/icons/twitter_16.png" width="16" height="16" alt="Twitter" /></a>
+                		<a href="https://www.facebook.com/sedat.c.uygur?ref=tn_tnmn"><img src="images/icons/facebook_16.png" width="16" height="16" alt="Twitter" /></a>
+                		<a href="https://plus.google.com/105760255827149276350/posts"><img src="images/social04.png" width="16" height="16" alt="Twitter" /></a>
+                		<a href="www.rss.com"><img src="images/icons/rss_16.png" width="16" height="16" alt="Twitter" /></a>
+        		</div>
+		</header>
+		
+		<nav id="menu">
+			<ul>
+				<li class="menuitem"><a href="index.html">Anasayfa</a></li>
+				<li class="menuitem"><a href="about.html">Hakkımızda</a></li>
+				<li class="menuitem"><a href="browse.html">Gelİştİrİcİler</a></li>
+				<li class="menuitem"><a href="contact.html">Başvuru Formu</a></li>
+				<li class="menuitem"><a href="destek.html">İletİşİm</a></li>
+			</ul>
+	    </nav>
+		 
+		 <aside>
+			<nav id="leftmenu">
+			<h3>20 Dakika</h3>
+				<ul>
+					<li><a href="bölüm özeti.html">Bölüm Özetleri</a></li>
+					<li><a href="fragman.html">Fragmanlar</a></li>
+					<li><a href="Olay Günü.html">Olay Günü</a></li>
+					<li><a href="fotograf.html">Fotoğraf Galerisi</a></li>
+					<li><a href="fotograf1.html">Arkaplan Slayt Gösterisi</a></li>
+					<li><a href="audiophoto.html">Dizi Müziğiyle Fotoğraflar</a></li>
+					<li><a href="haberler.html">Haberler</a></li>
+					<li><a href="book.html">Bölüm Günlüğü</a></li>
+					<li><a href="künye.html">Künye</a></li>
+					<li><a href="index2.html">3D Künye</a></li>
+				</ul>
+				<div>
+				<br><br>
+				<h3>Aylık Bülten</h3>
+				<script type="text/javascript">
+					showText();
+				</script>
+				<form id="news" onsubmit="initStorage()">
+					Adınız: <input type="text" id="name" name="name">
+					Email: <input type="email" id="email" name="email">
+					<input type="submit" value="Gönder">
+					<a href="#" onClick="clearAll()">Temizle</a>
+				</form>
+				</div>
+			</nav>
+		</aside>
+	<section>
+		<h1>20 Dakika Dizisi Tarihi Mekanlari</h1>
+<img src="images/1000.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Rumeli Han</h2>
+<p>Burası Rumelihan'la Afrika Han arasındaki bir alt geçit. 1800'lerin sonunda, binalar arasında mallar kaçırmak için kullanılırmış burası. Eskiden buralardan altın arabaları geçermiş.</p>
+<p>2.bölümde Rumeli Han'ın anlatıldığı videoyu izlemek için<a href="http://www.startv.com.tr/dizi/20-dakika/video-galeri/sayfa/1/sen-beni-kovaladigini-mi-sandin" target="_blank"> tıklayınız</a> 
+<hr/>
+<img src="images/1001.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+
+<h2>Cellat Çeşmesi</h2>
+<p>28 Ocak 1595. Tam burada, şu ağaçların orada, III.Mehmet tam 19 kardeşini öldürttü. Cellat Kara Ali işi bittiğinde kanlı ellerini bu suyla yıkadı. O yüzden buraya 'Cellat Çeşmesi' derler.</p>
+<p>3.bölümde Cellat Çeşmesi'nin anlatıldığı videoyu izlemek için<a href="http://www.startv.com.tr/dizi/20-dakika/video-galeri/sayfa/1/affet-beni" target="_blank"> tıklayınız</a> 
+<hr/>
+<img src="images/1002.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Kanlı Kuyu</h2>
+<p>Eskiden burası işkencehaneymiş. Yüzlerce adam öldürüldü burada. Kurbanlar bu kuyunun başında idam edilir, daha sonra kesilen başları da bu kuyudan aşağıya atılırdı. Kuyunun dibinde tünel var, denize çıkar. Kuyunun dibine kadar gelen deniz, kurbanların kanlarıyla köpürür, kıpkırmızı olurmuş. O yüzden bu kuyunun ismi Kanlı Kuyu. Bu tahta iskeleler seyirciler otursun diye yapılırmış. İşkenceleri seyredelermiş. Her yerde işkence aletleri, o iğneli fıçılar falan.</p>
+<p>4.bölümde Kanlı Kuyu'nun anlatıldığı videoyu izlemek için<a href="http://www.startv.com.tr/dizi/20-dakika/video-galeri/sayfa/1/ali-artik-eski-ali-degil" target="_blank"> tıklayınız</a> 
+<hr/>
+<img src="images/1003.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Cihangir</h2>
+<p>Kanuni'nin bir oğlu vardı, Cihangir. Sakat doğdu. Sultan olması imkansızdı. Belki de bu yüzden Kanuni en çok onu sevme cesaretini gösterdi. Ama yapamadı. Dünyaların Sultanı Kanuni bile en çok sevdiği oğlunun ölümüne engel olamadı. Cihangir'in altında oturmaktan hoşlandığı bir ağaç vardı. Kanuni tam da buraya bir cami yaptı. Adını da Cihangir koydu. Sık sık bu camiye gelir ve oğlunu arardı.</p>
+<p>5.bölümde Cihangir'in anlatıldığı videoyu izlemek için<a href="http://www.startv.com.tr/dizi/20-dakika/video-galeri/sayfa/1/oglunuzun-katili-sizsiniz" target="_blank"> tıklayınız</a> 
+<hr/>
+<img src="images/1004.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Vefa</h2>
+<p>Bu semtin adı nerden gelir bilir misin? Bir şeyhten. Ebu'l Vefa Hazretleri. 2 Sokak ötede bir dergahı var. 'Sır Kapısı' derler. Fatih Sultan Mehmet İstanbul'u fethedince Şeyh'i ziyarete gitmiş. Ama Vefa hazretleri kapıyı açmamış. Koca padişah hüngür hüngür ağlamış. Ama yine de açmamış kapıyı. Demiş ki 'Eğer kapıyı açarsam ve padişah bu dergahtan içeri girerse, bir daha çıkmaz. Sadece bu dergah için çalışır. Oysa cihanın ona ihtiyacı var.</p>
+<p>6.bölümde Vefa'nın anlatıldığı videoyu izlemek için<a href="http://www.startv.com.tr/dizi/20-dakika/video-galeri/sayfa/1/eger-bu-eve-girersem-meleki-kurtaramam" target="_blank"> tıklayınız</a> 
+<hr/>
+<img src="images/1005.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Nika Ayaklanması</h2>
+<p>Bundan yüzyıllar önce isyanın başladığı yerdeyim. Tam bu noktada baskı altındaki Bizanslılar kapalı mahkumları serbest bırakın dediler. Justinian kabul etmedi ve halk ayaklandı. Tüm şehri yaktılar. Saraya kadar yürüdüler. İsyanın parolası 'Nika'. Yani zafer. İsyan bastırıldı. 30.000 bin kişi öldürüldü. Ama birlikti. İstanbul tarihinin en büyük isyanı. İlk güç birliği. İlk karşı koyuş.  Bir kişi, tek başına bir hiç ama iki kişi her şeyi yapabilir bu hayatta.</p>
+<p>7.bölümde Nika'nın anlatıldığı videoyu izlemek için<a href="http://www.startv.com.tr/dizi/20-dakika/video-galeri/sayfa/1/isyanin-basladigi-yerdeyim" target="_blank"> tıklayınız</a> 
+<hr/>
+<img src="images/1006.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Kağıthane</h2>
+<p>Bilir misin Yakup Cemil'i</p>
+<p>Beyazıt'tan Kağıthane'ye idama yaya götürülürken, Yolda bir karpuz arabasını çevirmiş, "asker evlatlarım susamışlardır" diyerek idam mangasına karpuz ısmarlamıştır.</p>
+<p>İdamında vücuduna 14 mermi saplanmasına rağmen yarım saat boyunca can vermediği söylenir.</p>
+<p>Vücudundan sızan kanların toprağa önce vatan yazdığı efsanesi türemiştir.</p>
+<p>Kendisini idam edecek olan askerlerin "ateş" emrine rağmen ateş edemedikleri daha sonra Yakub Cemil'in olayı fark ederek asker nişan al -güldükten sonra - "ateş" emrini kendisinin verdiği söylenir ve o emir vermeden ateş edilmemişdir.</p>
+<p>8.bölümde Kağıthane'nin anlatıldığı videoyu izlemek için<a href="http://www.startv.com.tr/dizi/20-dakika/video-galeri/sayfa/1/seni-asla-yalniz-birakmayacagim" target="_blank"> tıklayınız</a> 
+<hr/>
+<img src="images/1007.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Mihrimah Sultan Camii</h2>
+<p>Arkanızda Mihrimah Sultan Külliyesi var. Mihrimah Sultan on yedisine bastığında, iki kişi onunla evlenmek ister. Biri Diyarbakır Valisi Rüstem Paşa diğeriyse Mimar Sinan’dır. Padişah kızını Rüstem Paşa’ya verir. İsmi önemli değil. Padişah karşısında herkes bir kul sadece. Hele padişahın kızına aşık olduğu öğrenilirse, o bir ölü. O yüzden mimar boğazın iki tarafın iki camii yaptırmış. Sevdiği kızın ismi Mihrimah. Anlamı ay ve güneş. Öyle yapmış ki mimar camiileri kızın doğumgününde güneş bir camiinin penceresinden batarken; öbür tarafta diğer pencerenin arkasında ay doğuyor. Ay ve güneş birleşip sevdiğinin yanına taşıyor.</p>
+<p>9.bölümde Mihrimah Sultan Camii'nin anlatıldığı videoyu izlemek için<a href="http://www.startv.com.tr/dizi/20-dakika/video-galeri/sayfa/1/blof-yapiyorsun" target="_blank"> tıklayınız</a> 
+<hr/>
+<img src="images/sevdatepesi.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Sevda Tepesi</h2>
+<p>Yıl 1931... Bir zabitle memure. Belkıs ile Vahit. Delice bir sevdaya tutuluyorlar. Yaşları daha 18. Ama Vahit'in ailesi onu başkasıyla evlendirmek istiyor. Belkıs da buraya geliyor ve bir mektup yazıyor Vahit'e. Diyor ki; 'Düşünüyorum da hayatta birbirine yakın olan her şey birleşebiliyor, sen de benim hayatımdaki en yakınımsın. Peki biz niye birleşemiyoruz?' Belkıs mektubuna devam ediyor. Diyor ki; 'Eğer artık bana aşık değilsen ve bir başkasıyla evleneceksen ölmeyi tercih ederim.' Ertesi akşam ikisi de burya geliyorlar. Birbirlerine yazdıkları mektupları yakıyorlar. Sonra, Vahit önce Belkıs'ı vuruyor tam kalbinden. Ceketini ayaklarına örtüyor üşümesin diye. Sonra kendi sevgilisinin yanına yatıyor ve tabancasıyla kendini vuruyor. Tam burada Belkıs ile Vahit ölüyorlar. O günden beri burasının ismi 'Sevda Tepesi'.</a>
+<h4>Belkıs’ın mektubu: Gururumu da öldürdüm!</h4>
+<p>“Vahit... İstiyordum ki sana karşı olan sevgimi anlayasın. Belki o zaman beni severdin. Biliyorum beni sevmedin. Bunu sen itiraf ettin. Senin söylediğin her şeye inandım. İnanıyorum. Fakat yalnız sende bir şey var; onu anlamak istiyorum. Bilmiyor musun bu nedir? Bu, beni sevmediğin. İsterim ki dünyada hiçbir şey senin bana karşı olan sevgine mani olmasın.</p>
+<p>Ben kendimi sana çok yakın buluyorum. Düşünüyorum, yakın olan her şey nihayet birleşiyor. Fakat bu olacak mı? İstiyorum ki sevgi, aşk acılığının tecrübesini benim üzerimde göstersin. Düşünüyorum, belki çok büyük günahım var. Eğer bu da seni sevmek ise ben bu günahı bile bile yapıyorum. Her günahkârın gideceği yer cehennem değil mi?... Ben oraya gitmeğe çoktan razıyım. Senin için olduktan sonra. İsterim ki daima seninle beraber olayım. İyi biliyorum, babanla vaziyetini en ince noktasına kadar işitiyorum. Anlıyorum. Senin mevkiin çok fena. Düşündün. Ve aileni bana tercih ettin. Hakkın var. Herkes ben değil. Sonra o gün telefon ettim. Bunları anlamak istiyorsan, irademe hakim olamadım. Herkesin neşeli bir zamanında ben de senin sesini işitmek isterdim. Bunun bana ne kadar büyük bir şeye mal olacağını biliyordum. Yalnız gururum kalmıştı. İşte onu da o gün öldürdüm. Bunları sana bizzat söylemek isterdim. Fakat kâbil değil ki.</p>
+<p>Eğer seni bilerek üzdümse beni affet. Çünkü sensiz yaşayamayacağımı anlıyorum. Beni sevdiğini söyle. Sana o kadar yakınım ki yavaşça ‘Evet’ desen işitecek ve ölünceye kadar seni bekleyeceğim. Belkıs Safer.”</p> 
+<p>10.bölümde Sevda Tepesi'nin anlatıldığı videoyu izlemek için<a href="http://www.startv.com.tr/dizi/20-dakika/video-galeri/sayfa/1/sevda-tepesi" target="_blank"> tıklayınız</a>
+<hr/>
+<img src="images/tophane.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Tophane</h2>
+<p>Yeniçeri ağası,güzel Hatice ile zehir Aliyi bulur,bir kayıkla denize açılırlar ve Tophane'ye gelirler.Sonra güzel Hatice'yi denize atarlar ve Ali'yi bir topun ağzına koyarlar.Yeniçeri ağası fitili ateşler ve Ali binbir parçaya ayrılır.Yıl 1595.Bir Yaz Gecesi.Kavuşmuş aşıklar suyun dibinde.</p>
+<hr/>
+<img src="images/kanlıçınar.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Kanlı Çınar</h2>
+<p>Yeniçeriler en güçlü oldukları zamanda padişaha bir liste verdiler.Padişah fazla direnemedi.Hepsinin cesedi bu ağacın dallarından sallandı.</p>
+<p>Aradan yıllar geçti.Padişah akıllı davrandı ve halkı ayaklandırdı.Yıl 1826.Bu sefer aynı ağacın dallarından son yeniçeriler sallandı.Olaydan sonra buranın ismi Kanlı Çınar oldu.</p>
+<hr/>
+<img src="images/kızkulesi.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Kız Kulesi</h2>
+<p>Atı alan Üsküdar'ı geçti deyimi nerden gelir bilir misin? Battal Gazi,tekfurun kızına aşık olur.Ama tekfur, kızını ona vermek istemez ve kızını Kız Kulesi'ne kapatır.Ama Battal Gazi durmaz ve atını atladığı gibi basar Kız Kulesi'ni.Kızı atına atar ve Üsküdar'ı geçer.</p>
+<hr/>
+<img src="images/canfeda.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Canfeda</h2>
+<p>Pargalı İbrahim Paşa, Irakeyn Seferi sırasında yaptığı bazı uygulamalar sebebiyle padişahın güvenini kaybetti. Bazı tarihçilere göre Kanuni’nin eşi Hürrem Sultan ve defterdar İskender Çelebi’nin kötülemelerinin de bunda etkisi oldu. Padişah bir ramazan akşamı İbrahim Paşa’yı iftara çağırdı. Kanuni Sultan Süleyman ona “Bu gece sarayda kal” dedi.Sadrazam yatmak için, hazırlanan odaya geçti.Aynı anda Cellat Kara Ali oraya girdi, yağlı kemendi onun boynuna doladı. Sadrazam İbrahim Paşa uyandı, bir süre direndi ama faydasız… Kanuni Pargalı İbrahim paşa ve nesli devam etmesin diye çocuklarını da öldürtmüştür.Pargalı'nın mezarı Canfeda Türbesi'ne defnedilmiştir.</p>
+<hr/>
+<img src="images/yıldızsarayı.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Yıldız Sarayı</h2>
+<p>Yıldız Sarayı,Kanuni döneminden başlayarak padişahlar için bir avlanma yeri olmuştur.1882'de Mithat Paşa ve Mahmut Celaleddin Paşa'nın idamını buyruk eden saray mahkemesi Yıldız Sarayında gerçekleşmiş ve bu nedenle Yıldız Mahkemesi adını kazanmıştır.. Sultan Abdülhamit'in 1909 yılında 31 Mart Vakası'ndan sonra tahttan indirilmesi üzerine saray bir halk kalabalığı tarafından yağmalanmış ve kısmen yakılmıştır.</p>
+<hr/>
+<img src="images/feriyesarayı.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Feriye Sarayı</h2>
+<p>Abdülaziz tahttan indirildikten sonra buraya getirildi.Ne olacağını bilmiyordu.Sonra odaya Fahri Bey girdi.Abdülaziz onu kahveci çıraklığından alıp devletin en tepesine getirdi.Rahatlamıştı.Sonra bir baktı odada başkaları var.Çok geçti.Fahri Bey onun ellerini arkadan bağladı,diğerleri de hançerle bileğini kestiler.En güvendiği adam onun ölümü olmuştur.</p>
+<hr/>
+<img src="images/sahrayıcedid.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Sahrayıcedid</h2>
+<p>Sahrayıcedid mezarlığında sefere çıkmak üzere olan Osmanlı askerleri beklermiş.Ama bazen bu bekleyiş o kadar uzun sürermiş ki beklerken ölürmüş askerler oraya gömülürlermiş.</p>
+<hr/>
+<img src="images/esmasultansarayı.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Esma Sultan Sarayı</h2>
+<p>Esma Sultan I.Abdülhamit'in kızı.O kadar güçlüymüş ki yeniçeriler II.Mahmut'un yerine onu padişah olarak göstermişler.Osmanlıda ilk defa bir kadın padişah adayı olmuş.Geceleri tebdili kıyafet giyip sokağa çıkarmış ve beğendiği erkeği yalısına davet edermiş.O gece beraber olurlarmış.Adamı karşı kıyıya bırakmak için sandala bindirirlermiş. Ama aslında sandaldakiler Esma'nın cellatları.Onu boğup denize atıyorlar.Her gün bir erkek bir kadına aşık oluyormuş,her gün aşkından bir erkek ölüyormuş.</p>
+<hr/>
+<img src="images/vaniköy.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Vaniköy</h2>
+<p>Vaniköy ismi nerden gelir bilir misin? Vani Efendi'den.Hünkarın şeyhiymiş.Osmanlı'ya çok hizmeti olmuş ama bir gün bir kötülük etmiş Mevlevilere.Yobaz demiş onlara ve bütün dergahlarını kapatmış.Tek bir hata yapmış ve ondan sonra adama Cani demişler.Mevlevilerküsmüş ve Vaniköy'e bir daha uğramamışlar.</p>
+<hr/>
+<img src="images/kırmızıyalı.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Kırmızı Yalı</h2>
+<p>13 Ocak 1891. Sadullah Paşa daha önceden hazırladığı lastik borunun bir tarafını kendi ağzına diğerini de hava gazı musluğuna bağlamış ve intihar etmiş.Necibe Hanım senelerce Kırmızı Yalı'da hayalet gibi dolaşıp durmuş.Delirerek ölmüş.Paşa bir anlık zayıflık sonucunda bir kadınla beraber olmuş.Bu olay skandala dönüşmeden intihar etmiş.</p>
+<hr/>
+<img src="images/agorameyhanesi.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Agora Meyhanesi</h2>
+<p>Kan tüküren mesut insanların dünyası...Yıl 1959.Şair İzmirli yani Onur Şenli genç bir tıp öğrencisi.Aşkından yanıyor.Ne burasını ne de buranın sekiz köşesini bilmeden burası hakkında bir şiir yazıyor.Yıllar sonra buraya geliyor ve aşkların en güzelinin burda yaşanacağını düşünüyor.</p>
+<hr/>
+<img src="images/eskihisar.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Eskihisar</h2> 
+<p>Hannibal, M.Ö 247 ile M.Ö 183 yılları arasında yaşamış Kartacalı politikacı ve generaldir.Hannibal,tüm zamanların en büyük askeri dehalarından biridir.Ayrıca tarihin ilk anti-emperyalist komutanı olarak bilinir.Askeri tarihçi Theodore Ayrault Dodge Hannibal'ı "Stratejinin Babası" olarak nitelendirir ve en büyük düşmanı olan Roma'nın bile onu kendi taktikleriyle yendiğini anlatır.Hatta Hannibal'ın savaş stratejilerinden bazıları Kurtuluş Savaşı'nda da Yunan kuvvetlerine karşı başarıyla kullanılmıştır."Ya bir yol buluruz, ya bir yol yaparız." sözünü İtalya seferine çıkmak için zorlu Alp dağlarını fillerle aşarken söylüyor.Bazı kaynaklar Fatih in İstanbul'un fethinde gemileri karadan yürütmesi fikrini bu sözden etkilenerek aldığını düşünür. Birçok kaynakta Bursa'nın kuruluşu Hannibal ile ilişkilendirilir. Bitinya Kralı Prusias'ın yanındayken ona bugünkü Bursa'nın olduğu yerde bir şehir kurmasını öğütlediği ve şehirdeki ilk içme suyu şebekesini kurduğu düşünülür.Bugünkü Gebze ilçesinin Eskihisar köyünde 
+Bitinyalılar tarafından Romalılara teslim edileceğini anlayınca yüzüğünde taşıdığı bilinen zehiri içerek intihar etti.</p>
+<hr/>
+<img src="images/bursa.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Bursa</h2> 
+<p>M.Ö. 3.yüzyılda Bithynialılar ve Prusiaslılar tarafından kurulan kentin ilk adı “Prusa” idi. Yazılı kaynaklarda “Bitinya” olarak da geçen Bursa ve çevresinin en eski yerleşimleri İznik Gölü çevresindedir.Kartaca kralı Hannibal, Romalılar ile yaptığı savaşı kaybedince, askerleriyle birlikte I. Prusias’a sığınmıştır. Hannibal, I. Prusias tarafından büyük itibar görmesi üzerine, onun onuruna Bursa kentini kurmuş. Kente bu nedenle Prusa adı verilmiştir. Şehir merkezine yakın ilk yerleşimin kesin bulguları M.Ö. 2500 – 2700 yıllarını göstermektedir.Müslümanlar ilk kez, 955 yılında Abbasiler Harun Reşid döneminde Bursa’ya kadar gelmişti. 6 Nisan 1326 tarihinde Bursa’yı Orhan Bey’e teslim etti.</p>
+<hr/>
+<img src="images/galataköprüsü.jpg" alt="20 Dakika 20 Dakika&#39;nın tarihi mekanları">
+
+<h2>Galata Köprüsü</h2>
+<p>Galata Köprüsü,İstanbul'da Haliç üzerine yapılmış, Karaköy'le Eminönü'nü birleştiren köprüdür.Tarih boyunca Haliç'in iki yakasını birleştiren birçok köprü yapılmıştır.Altın Boynuz üzerine ilk köprü 6. yüzyılda I. Justinianus tarafından yapıldı.Sultan II.Beyazıd, Leonardo da Vinci'den bir tasarım yapmasını istedi. Leonardo da Vinci, padişaha bir Haliç Köprüsü tasarımı sundu.Yapılmış olsaydı dünyadaki en uzun köprü olacaktı.Başka bir İtalyan sanatçısısı olan Mikelanj İstanbul'a köprü için davet edildi. Mikelanj bu teklifi geri çevirdi.3 Eylül 1836 tarihinde Hayratiye Köprüsü yapıldı.İlk modern Galata köprüsü olan Cisr-i Cedid, 1845 yılında,Sultan Abdülmecid zamanında,annesi Bezm-i Alem Valide Sultan tarafından yaptırıldı.Sonra İkinci,Üçüncü,Dördüncü köprü yapıldı.Bu köprü dünyada üzerinden tramvay geçen ender baskül köprülerden biridir.Bugün İstanbul'un geleneksel ikonlarından biri haline gelmiş Galata Köprüsü, Yeni İstanbul (Karaköy, Beyoğlu, Harbiye) ve Eski İstanbul'u (Sultanahmet, Fatih, Eminönü) 
+birbirine bağladığı için "iki kültürü birbirine bağlayan köprü" simgeselliğini taşımaktadır.</p>
+<hr/>
+</div><!--container end-->
+	<div style="clear;both"></div>
+	<footer>
+		Copyright &copy; 2013, EndLeSs Bilişim
+	</footer>
+</body>
+</html>
