@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../themes/base/jquery.ui.all.css">
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<title>20 Dakika Dizisi Kişisel Websitesi</title>
+<script src="js/jquery-2.0.3.js"></script>
+<script src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.slidertron-1.1.js"></script>
+<script src="../ui/jquery.ui.core.js"></script>
+<script src="../ui/jquery.ui.widget.js"></script>
+<script src="../ui/jquery.ui.mouse.js"></script>
+<script src="../ui/jquery.ui.slider.js"></script>
+<script type="text/javascript">
+$(function() {
+	$( "#slider-range" ).slider({
+		range: true,
+		min: 100,
+		max: 10000,
+		values: [ 500, 1500 ],
+		slide: function( event, ui ) {
+			$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+		}
+	});
+	$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+		" - $" + $( "#slider-range" ).slider( "values", 1 ) );
+});
+function initStorage(){
+	function saveName(){
+		var name = document.getElementById('name');
+		localStorage.setItem('name',name.value);
+	}
+	
+	function saveEmail(){
+		var email = document.getElementById('email');
+		localStorage.setItem('email',email.value);
+	}
+	
+	//Run functions
+	saveName();
+	saveEmail();
+}
+
+function initStorage1(){
+	function saveName(){
+		var name1 = document.getElementById('name1');
+		localStorage.setItem('name1',name1.value);
+	}
+	
+	function saveEmail(){
+		var email1 = document.getElementById('email1');
+		localStorage.setItem('email1',email1.value);
+	}
+	function savePhone(){
+		var phone = document.getElementById('phone');
+		localStorage.setItem('phone',phone.value);
+	}
+	function savePhone1(){
+		var phone1 = document.getElementById('phone1');
+		localStorage.setItem('phone1',phone1.value);
+	}
+	function saveLocation(){
+		var location1 = document.getElementById('location1');
+		localStorage.setItem('location1',location1.value);
+	}
+	function savetextInput(){
+		var amount = document.getElementById('amount');
+		localStorage.setItem('amount',amount.value);
+	}
+	function saveServices(){
+		var services = document.getElementById('services');
+		localStorage.setItem('services',services.value);
+	}
+	function saveWebsite(){
+		var website = document.getElementById('website');
+		localStorage.setItem('website',website.value);
+	}
+	function saveStart(){
+		var start = document.getElementById('start');
+		localStorage.setItem('start',start.value);
+	}
+	function savePage(){
+		var pages = document.getElementById('pages');
+		localStorage.setItem('pages',pages.value);
+	}
+	function saveColor(){
+		var color = document.getElementById('color');
+		localStorage.setItem('color',color.value);
+	}
+	//Run functions
+	saveName();
+	saveEmail();
+	savePhone();
+	savePhone1();
+	saveLocation();
+	savetextInput();
+	saveServices();
+	saveWebsite();
+	saveStart();
+	savePage();
+	saveColor();
+}
+
+function displayName(){	
+	if(localStorage.getItem('name') != null){
+		document.write('Hoşgeldiniz, '+localStorage.getItem('name'));
+	}
+}
+function displayAll(){	
+		document.write('Adınız: '+localStorage.getItem('name1')+"<br>");
+		document.write('Ev telefon numaranız: '+localStorage.getItem('phone')+"<br>");
+		document.write('Cep telefon numaranız: '+localStorage.getItem('phone1')+"<br>");
+		document.write('Emailiniz: '+localStorage.getItem('email1')+"<br>");
+		document.write('Görüşmek istediğiniz il: '+localStorage.getItem('location1')+"<br>");
+		document.write('Bütçeniz: '+localStorage.getItem('amount')+"<br>");
+		document.write('İstediğiniz servisler: '+localStorage.getItem('services')+"<br>");
+		document.write('Yaptıracağınız websiteye benzeyen bir websitenin linki: '+localStorage.getItem('website')+"<br>");
+		document.write('Website başlama tarihi: '+localStorage.getItem('start')+"<br>");
+		document.write('Sayfa sayısı: '+localStorage.getItem('pages')+"<br>");
+		document.write('Arka plan rengi: '+localStorage.getItem('color')+"<br>");
+}	
+function showText(){
+	if(localStorage.getItem('email') == null){
+		document.write('<p>Lütfen adınızı ve e-mail adresinizi giriniz.</p>');
+	} else {
+		document.write('<p><strong>Subscribed Email:</strong> '+localStorage.getItem('email')+'</p> ');
+	}
+}
+
+function clearAll(){
+	localStorage.clear();   
+	window.location.reload()
+}
+function showHTML() {
+    alert($(this).html())
+}
+$(".but1").click(function() {
+    alert("Bilgileriniz kaydedildi.");    
+})
+$(document).ready(function() {
+	$( ".but1" ).hide(10000);
+	$( ".but1" ).show(1000);
+	$( ".but1" ).click(function() {alert("Bilgileriniz kaydedildi.") });
+	localStorage.clear(); 	
+})
+</script>
+</head>
+<body>
+	<div id="container">
+		<header>
+			<div id="logo">
+       	    			<a href="#"><img src="images/20 dakika1.jpg" alt="" /></a>
+            		</div>
+			<h1><span class="blue-text">20 Dakika</span> Dizisi Hakkında Herşey</h1>
+			<h2><a href="register.html"> Kayıt Ol</h2>
+			<div id="social_media">
+               			<a href="#">Follow us</a>&nbsp;&nbsp;
+                		<a href="https://twitter.com/PcEngineer48"><img src="images/icons/twitter_16.png" width="16" height="16" alt="Twitter" /></a>
+                		<a href="https://www.facebook.com/sedat.c.uygur?ref=tn_tnmn"><img src="images/icons/facebook_16.png" width="16" height="16" alt="Twitter" /></a>
+                		<a href="https://plus.google.com/105760255827149276350/posts"><img src="images/social04.png" width="16" height="16" alt="Twitter" /></a>
+                		<a href="www.rss.com"><img src="images/icons/rss_16.png" width="16" height="16" alt="Twitter" /></a>
+        		</div>
+		</header>
+		
+		<nav id="menu">
+			<ul>
+				<li class="menuitem"><a href="index.html">Anasayfa</a></li>
+				<li class="menuitem"><a href="about.html">Hakkımızda</a></li>
+				<li class="menuitem"><a href="browse.html">Gelİştİrİcİler</a></li>
+				<li class="menuitem"><a href="contact.html">Başvuru Formu</a></li>
+				<li class="menuitem"><a href="destek.html">İletİşİm</a></li>		
+			</ul>
+	    </nav>
+		 
+		 <aside>
+			<nav id="leftmenu">
+			<h3>20 Dakika</h3>
+				<ul>
+					<li><a href="bölüm özeti.html">Bölüm Özetleri</a></li>
+					<li><a href="fragman.html">Fragmanlar</a></li>
+					<li><a href="Olay Günü.html">Olay Günü</a></li>
+					<li><a href="fotograf.html">Fotoğraf Galerisi</a></li>
+					<li><a href="fotograf1.html">Arkaplan Slayt Gösterisi</a></li>
+					<li><a href="audiophoto.html">Dizi Müziğiyle Fotoğraflar</a></li>
+					<li><a href="haberler.html">Haberler</a></li>
+					<li><a href="book.html">Bölüm Günlüğü</a></li>
+					<li><a href="bölümisimleri.html">Tarihi Mekanlar</a></li>
+					<li><a href="künye.html">Künye</a></li>
+					<li><a href="index2.html">3D Künye</a></li>
+				</ul>
+				<div>
+				<br><br>
+				<h3>Aylık Bülten</h3>
+				<script type="text/javascript">
+					showText();
+				</script>
+				<form id="news" onsubmit="initStorage()">
+					Adınız: <input type="text" id="name" name="name">
+					Email: <input type="email" id="email" name="email">
+					<input type="submit" value="Gönder">
+					<a href="#" onClick="clearAll()">Temizle</a>
+				</form>
+				</div>
+			</nav>
+		</aside>
+    
+	<section>
+			<h3>Web Tasarım Formu</h3>
+			<p>Lütfen tasarlamamızı istediğiniz siteyi anlamamız için aşağıdaki formu doldurun.</p>
+			<form method="post" action="contact.html" onsubmit="initStorage1()">
+				<p>
+					<label for="name">Adınız:</label>
+					<input type="text" id="name1" name="name1" title="Lütfen adınızı giriniz">
+				</p>
+				<p>
+					<label for="phone">Ev telefonu numaranız: </label>
+					<input type="tel" id="phone" name="phone" title="Lütfen ev telefonu numaranızı giriniz">
+				</p>
+				<p>
+					<label for="phone">Cep telefonu numaranız: </label>
+					<input type="tel" id="phone1" name="phone1" title="Lütfen cep telefonu numaranızı giriniz">
+				</p>
+				<p>
+					<label for="email">Email adresiniz: </label>
+					<input type="email" id="email1" name="email1" title="Lütfen email adresinizi giriniz">
+				</p>
+				<p>
+				<label for="location">Oturduğunuz il: </label>
+					<input name="location1" id="location1" list="location" title="Lütfen oturduğunuz ili seçiniz">
+					<datalist id="location" name="location">
+						<option value="İstanbul">
+						<option value="Ankara">
+						<option value="İzmir">
+						<option value="Muğla">
+						<option value="Bursa">
+						<option value="Manisa">
+						<option value="Mersin">
+						<option value="Çanakkale">
+						<option value="Balıkesir">
+						<option value="Afyon">
+						<option value="Kütahya">
+						<option value="Denizli">
+						<option value="Edirne">
+						<option value="Gaziantep">
+						<option value="Hakkari">
+						<option value="Kahramanmaraş">
+						<option value="Niğde">
+						<option value="Osmaniye">
+						<option value="Rize">
+						<option value="Samsun">
+						<option value="Tokat">
+						<option value="Van">
+						<option value="Yozgat">
+						<option value="Zonguldak">
+						
+					</datalist>
+				</p>
+				<fieldset name="about">
+				<legend>Websiteniz Hakkında</legend>
+				 <script type="text/javascript">
+    					function updateTextInput(val) {
+      						document.getElementById('amount').value=val; 
+    					}
+  				 </script>
+				<p>
+					 <label for="amount">Bütçe:</label>                                                       
+    					 <input type="text" id="amount" name="amount" style="border:0; color:#f6931f; font-weight:bold;" title="Lütfen bütçenizi seçiniz">
+				</p>
+				<div id="slider-range"></div>
+				<p>
+					<label for="call">Sitenizi yaparken hangi servisleri kullanmamı istiyorsunuz?:(Kullanmamı istediğiniz servisleri seçiniz.)</label>	
+					<table>
+						<tr>
+							<td><input id="services" type="checkbox" name="services" value="html5">HTML5</td>
+							<td><input id="services" type="checkbox" name="services" value="css3">CSS3</td>
+							<td><input id="services" type="checkbox" name="services" value="javascript">Javascript</td>
+							<td><input id="services" type="checkbox" name="services" value="php">PHP</td>
+						</tr>
+						<tr>
+							<td><input id="services" type="checkbox" name="services" value="asp.net">ASP.net</td>
+						</tr>
+						<tr>
+							<td><input id="services" type="checkbox" name="services" value="java">Java</td>
+							<td><input id="services" type="checkbox" name="services" value="c++">C++</td>
+							<td><input id="services" type="checkbox" name="services" value="c#">C#</td>
+						</tr>
+					</table>
+				</p>
+
+				<p>
+					<label for="website">Benzer website linki: </label>
+					<input id="website" type="url" name="website" title="İstediğiniz websiteye benzeyen bir websitenin linkini giriniz">
+				</p>
+				<p>
+					<label for="start">Websitenizin açılma tarihi: </label>
+					<input id="start" type="date" name="start" title="Websitenizin ne zaman oluşmasını istiyorsunuz?">
+				</p>
+				<p>
+					<label for="pages">Websitenizin sayfa sayısı: </label>
+					<input id="pages" type="number" name="pages" title="Websitenizin kaç sayfadan oluşmasını istiyorsunuz?">
+				</p>
+				<p>
+					<label for="color">Websitenizin arka plan rengi: </label>
+					<input id="color" type="color" name="color" title="Websitenizin arka plan rengini belirtiniz">
+				</p>
+				
+				</fieldset>
+				<p>
+					<button class="but1"><a href="#" onClick="clearAll()">Gönder</a></button>
+				</p>
+			
+			</form>
+			<script type="text/javascript">
+				displayAll();
+    			</script>
+    </section>	
+</div><!--container end-->
+	<div style="clear;both"></div>
+	<footer>
+		Copyright &copy; 2013, EndLeSs Bilişim
+	</footer>
+</body>
+</html>
