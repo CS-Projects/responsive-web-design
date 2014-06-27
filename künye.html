@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<title>20 Dakika Dizisi Kişisel Websitesi</title>
+<script src="js/jquery-2.0.3.js"></script>
+<script src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.slidertron-1.1.js"></script>
+<script type="text/javascript">
+function initStorage(){
+	function saveName(){
+		var name = document.getElementById('name');
+		localStorage.setItem('name',name.value);
+	}
+	
+	function saveEmail(){
+		var email = document.getElementById('email');
+		localStorage.setItem('email',email.value);
+	}
+	
+	//Run functions
+	saveName();
+	saveEmail();
+}
+
+function displayName(){	
+	if(localStorage.getItem('name') != null){
+		document.write('Welcome Back, '+localStorage.getItem('name'));
+	}
+}
+	
+function showText(){
+	if(localStorage.getItem('email') == null){
+		document.write('<p>Lütfen adınızı ve e-mail adresinizi giriniz.</p>');
+	} else {
+		document.write('<p><strong>Subscribed Email:</strong> '+localStorage.getItem('email')+'</p> ');
+	}
+}
+
+function clearAll(){
+	localStorage.clear();   
+	window.location.reload()
+}
+</script>
+</head>
+<body>
+	<div id="container">
+		<header>
+			<div id="logo">
+       	    			<a href="#"><img src="images/20 dakika1.jpg" alt="" /></a>
+            		</div>
+			<h1><span class="blue-text">20 Dakika</span> Dizisi Hakkında Herşey</h1>
+			<h2><a href="register.html"> Kayıt Ol</h2>
+			<div id="social_media">
+               			<a href="#">Follow us</a> &nbsp;&nbsp;
+                		<a href="https://twitter.com/PcEngineer48"><img src="images/icons/twitter_16.png" width="16" height="16" alt="Twitter" /></a>
+                		<a href="https://www.facebook.com/sedat.c.uygur?ref=tn_tnmn"><img src="images/icons/facebook_16.png" width="16" height="16" alt="Twitter" /></a>
+                		<a href="https://plus.google.com/105760255827149276350/posts"><img src="images/social04.png" width="16" height="16" alt="Twitter" /></a>
+                		<a href="https://www.rss.com"><img src="images/icons/rss_16.png" width="16" height="16" alt="Twitter" /></a>
+        		</div>
+		</header>
+		
+		<nav id="menu">
+			<ul>
+				<li class="menuitem"><a href="index.html">Anasayfa</a></li>
+				<li class="menuitem"><a href="about.html">Hakkımızda</a></li>
+				<li class="menuitem"><a href="browse.html">Gelİştİrİcİler</a></li>
+				<li class="menuitem"><a href="contact.html">Başvuru Formu</a></li>
+				<li class="menuitem"><a href="destek.html">İletİşİm</a></li>
+			</ul>
+	    </nav>
+		 
+		 <aside>
+			<nav id="leftmenu">
+			<h3>20 Dakika</h3>
+				<ul>
+					<li><a href="bölüm özeti.html">Bölüm Özetleri</a></li>
+					<li><a href="fragman.html">Fragmanlar</a></li>
+					<li><a href="Olay Günü.html">Olay Günü</a></li>
+					<li><a href="fotograf.html">Fotoğraf Galerisi</a></li>
+					<li><a href="fotograf1.html">Arkaplan Slayt Gösterisi</a></li>
+					<li><a href="audiophoto.html">Dizi Müziğiyle Fotoğraflar</a></li>
+					<li><a href="haberler.html">Haberler</a></li>
+					<li><a href="book.html">Bölüm Günlüğü</a></li>
+					<li><a href="bölümisimleri.html">Tarihi Mekanlar</a></li>
+					<li><a href="index2.html">3D Künye</a></li>
+				</ul>
+				<div>
+				<br><br>
+				<h3>Aylık Bülten</h3>
+				<script type="text/javascript">
+					showText();
+				</script>
+				<form id="news" onsubmit="initStorage()">
+					Adınız: <input type="text" id="name" name="name">
+					Email: <input type="email" id="email" name="email">
+					<input type="submit" value="Gönder">
+					<a href="#" onClick="clearAll()">Temizle</a>
+				</form>
+				</div>
+			</nav>
+		</aside>
+	<section>
+		<h1>20 Dakika Dizisi Künye</h1>
+<div class="itemGroup type01" id="episode-list">
+        <div class="itemWrap clearfix">
+            <div class="item">
+              <div class="visual BR4px" style="height: 141px;">
+                <a href="javascript:;" style="cursor: default">
+                  <img alt="Tuba B&#252;y&#252;k&#252;st&#252;n" src="images/100.jpg" class="BR4px cast-cover"></a>
+              </div>
+              <div class="description cast-info">
+                <h3>
+                  Melek Halaskar</h3>
+                <p>
+		  Tuba B&#252;y&#252;k&#252;st&#252;n</p>
+		<p>Ali'nin biricik aşkı, iki çocuk annesi ve evin direği. Ali dahil üç çocuğa hem annelik hem babalık yapan, sorumluluk sahibi, her türlü durumu idare etmeyi becerebilen bir kadın. Yoruluyor ama hayatla savaşmaktan vazgeçmiyor. Bir gün boyunu aşan bir savaşın içinde bulacak kendini.</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="visual BR4px" style="height: 141px;">
+                <a href="javascript:;" style="cursor: default">
+                  <img alt="İlker Aksum" src="images/101.jpg" class="BR4px cast-cover"></a>
+              </div>
+              <div class="description cast-info">
+                <h3>
+                  Ali Halaskar</h3>
+                <p>
+                  İlker Aksum</p>
+		<p>Kendi halinde bir tarih öğretmeni. En büyük düşkünlüğü ailesi. Ali'nin Melek'e olan aşkı sarsılmaz. Ama bir gün hayatı sarsılacak. Çünkü Melek'siz kalacak. O gün geldiğinde Ali yavaş yavaş, kendinde var olduğunu hiç bilmediği bir güçle tanışacak.</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="visual BR4px" style="height: 141px;">
+                <a href="javascript:;" style="cursor: default">
+                  <img alt="B&#252;lent Emin Yarar" src="images/102.jpg" class="BR4px cast-cover"></a>
+              </div>
+              <div class="description cast-info">
+                <h3>
+                  Kedi</h3>
+                <p>
+                  B&#252;lent Emin Yarar</p>
+		<p>Çilingir Kedi, bugün sahiplerinin isteğiyle açtığı kapıları bir zamanlar izinsiz açıyordu. Çünkü o profesyonel bir eski hırsız. Ve amatör bir baba. Sakin, bilge bir adam. Ama aklından ne zaman ne geçtiği belli değil. Sizi her an şaşırtabilir. Bildikleri, bugün Ali için hayati önem taşıyor.</p>
+              </div>
+            </div>
+	    <div class="item">
+              <div class="visual BR4px" style="height: 141px;">
+                <a href="javascript:;" style="cursor: default">
+                  <img alt="M&#252;jde Uzman" src="images/104.jpg" class="BR4px cast-cover"></a>
+              </div>
+              <div class="description cast-info">
+                <h3>
+                  Kuzgun</h3>
+                <p>
+                  M&#252;jde Uzman</p>
+		<p>Kedi'nin ihmal edilmiş kızı. Hırsızların arasında büyümüş ve o dünyadan nefret etmiş. Tek başına hayatta kalabilen, önüne gelene kafa tutabilen, her deliğe girip çıkabilen becerikli bir kız. Ve gözden kaçmayacak kadar da çekici. Girdiği yolda Ali'nin vazgeçilmez yardımcısı olacak.</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="visual BR4px" style="height: 141px;">
+                <a href="javascript:;" style="cursor: default">
+                  <img alt="Fırat &#199;elik" src="images/105.jpg" class="BR4px cast-cover"></a>
+              </div>
+              <div class="description cast-info">
+                <h3>
+                  Ozan</h3>
+                <p>
+                  Fırat &#199;elik</p>
+		<p>Melek'in davasını takip eden genç, cevval komiser. Akıl yürütmeyi, bir işin peşinden sonuna kadar gitmeyi, kimsenin görmediğini bulup çıkarmayı seviyor. Melek'in davası yeni hedefi. Onu bu davaya çeken bir şeyler var. Ne olduğunu bilmese de ipin ucunu bırakmayacak.</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="visual BR4px" style="height: 141px;">
+                <a href="javascript:;" style="cursor: default">
+                  <img alt="Ayten Uncuoğlu" src="images/106.jpg" class="BR4px cast-cover"></a>
+              </div>
+              <div class="description cast-info">
+                <h3>
+                  Zeynep Halaskar</h3>
+                <p>
+                  Ayten Uncuoğlu</p>
+		<p>Ali'nin annesi. Oğluna, kocasına, torunlarına düşkün, tam bir süper babaanne. Gelinine diğerlerinden biraz daha az düşkün, fırsat buldukça laf sokuşturmayı ihmal etmiyor. Ama içten içe sever Melek'i. Sık sık söylenen ama tatlı, rahat, güleç bir kadın.</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="visual BR4px" style="height: 141px;">
+                <a href="javascript:;" style="cursor: default">
+                  <img alt="Cihat Tamer" src="images/107.jpg" class="BR4px cast-cover"></a>
+              </div>
+              <div class="description cast-info">
+                <h3>
+                  Nedim Halaskar</h3>
+                <p>
+                  Cihat Tamer</p>
+		<p>Ali'nin Karayolları'ndan emekli babası. Sık sık torunlarıyla şakalaşırken görülse de eski daire müdürlerinin sert, askervari hali her daim üstündedir. “Erkek dediğin bastığı yeri inletmeli” der. Oğlunun cevval olamayışına üzülen; ailesine ve torunlarına çok düşkün, sevgi dolu bir dede.</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="visual BR4px" style="height: 141px;">
+                <a href="javascript:;" style="cursor: default">
+                  <img alt="İpek Bilgin" src="images/108.jpg" class="BR4px cast-cover"></a>
+              </div>
+              <div class="description cast-info">
+                <h3>
+                  Muavin S&#252;reyya</h3>
+                <p>
+                  İpek Bilgin</p>
+		<p>Melek'in yattığı hapishanenin müdür muavini. Bu hapishanede Muavin'in borusu öter. Ama aslında Necmettin Solmaz'ın. Muavin, Başkan'ın hapishanedeki gözü kulağı. Bazen de eli. Sorgulamayan, sadece uygulayan bir kadın. Bu teslimiyetin sebepleri ise, Başkan'la Muavin'in arasında.</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="visual BR4px" style="height: 141px;">
+                <a href="javascript:;" style="cursor: default">
+                  <img alt="Metin &#199;ekmez" src="images/109.jpg" class="BR4px cast-cover"></a>
+              </div>
+              <div class="description cast-info">
+                <h3>
+                  Necmettin Solmaz</h3>
+                <p>
+                  Metin &#199;ekmez</p>
+              </div>
+            </div>
+            
+            <div class="item">
+              <div class="visual BR4px" style="height: 141px;">
+                <a href="javascript:;" style="cursor: default">
+                  <img alt="G&#252;nay Karacaoğlu" src="images/110.jpg" class="BR4px cast-cover"></a>
+              </div>
+              <div class="description cast-info">
+                <h3>
+                  Akrep</h3>
+                <p>
+                  G&#252;nay Karacaoğlu</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="visual BR4px" style="height: 141px;">
+                <a href="javascript:;" style="cursor: default">
+                  <img alt="Mehmet Esen" src="images/111.jpg" class="BR4px cast-cover"></a>
+              </div>
+              <div class="description cast-info">
+                <h3>
+                  Albay</h3>
+                <p>
+                  Mehmet Esen</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="visual BR4px" style="height: 141px;">
+                <a href="javascript:;" style="cursor: default">
+                  <img alt="Ushan &#199;akır" src="images/112.jpg" class="BR4px cast-cover"></a>
+              </div>
+              <div class="description cast-info">
+                <h3>
+                  &#214;zg&#252;r</h3>
+                <p>
+                  Ushan &#199;akır</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="visual BR4px" style="height: 141px;">
+                <a href="javascript:;" style="cursor: default">
+                  <img alt="Defne Kayalar" src="images/113.jpg" class="BR4px cast-cover"></a>
+              </div>
+              <div class="description cast-info">
+                <h3>
+                  Derin Solmaz</h3>
+                <p>
+                  Defne Kayalar</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="visual BR4px" style="height: 141px;">
+                <a href="javascript:;" style="cursor: default">
+                  <img alt="Murat Pors&#231;iler" src="images/114.jpg" class="BR4px cast-cover"></a>
+              </div>
+              <div class="description cast-info">
+                <h3>
+                  Kerim Solmaz</h3>
+                <p>
+                  Murat Pors&#231;iler</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="visual BR4px" style="height: 141px;">
+                <a href="javascript:;" style="cursor: default">
+                  <img alt="&#214;zlem T&#252;ray" src="images/115.jpg" class="BR4px cast-cover"></a>
+              </div>
+              <div class="description cast-info">
+                <h3>
+                  Zorba</h3>
+                <p>
+                  &#214;zlem T&#252;ray</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="visual BR4px" style="height: 141px;">
+                <a href="javascript:;" style="cursor: default">
+                  <img alt="Beg&#252;m Akkaya" src="images/116.jpg" class="BR4px cast-cover"></a>
+              </div>
+              <div class="description cast-info">
+                <h3>
+                  Zeliha</h3>
+                <p>
+                  Beg&#252;m Akkaya</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="visual BR4px" style="height: 141px;">
+                <a href="javascript:;" style="cursor: default">
+                  <img alt="Esra Akkaya" src="images/117.jpg" class="BR4px cast-cover"></a>
+              </div>
+              <div class="description cast-info">
+                <h3>
+                  Mirel</h3>
+                <p>
+                  Esra Akkaya</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="visual BR4px" style="height: 141px;">
+                <a href="javascript:;" style="cursor: default">
+                  <img alt="Perihan Erener" src="images/118.jpg" class="BR4px cast-cover"></a>
+              </div>
+              <div class="description cast-info">
+                <h3>
+                  Aslı</h3>
+                <p>
+                  Perihan Erener</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="visual BR4px" style="height: 141px;">
+                <a href="javascript:;" style="cursor: default">
+                  <img alt="Miray Akay" src="images/119.jpg" class="BR4px cast-cover"></a>
+              </div>
+              <div class="description cast-info">
+                <h3>
+                  Duru Halaskar</h3>
+                <p>
+                  Miray Akay</p>
+		<p>Asiliği önce ergenliğinden, sonra annesinden aldığı inatçı genlerinden gelen bir genç kız. Dış dünyaya karşı son derece sivri dilli ama göstermemeye çalışsa da ailesine çok düşkün. Arkadaşları arasında popüler, neşeli, umursamaz bir kız. Ama aslında pek çok şeyi umursuyor.</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="visual BR4px" style="height: 141px;">
+                <a href="javascript:;" style="cursor: default">
+                  <img alt="&#214;zg&#252;r Ege Nalcı" src="images/120.jpg" class="BR4px cast-cover"></a>
+              </div>
+              <div class="description cast-info">
+                <h3>
+                  Yağız Halaskar</h3>
+                <p>
+                  &#214;zg&#252;r Ege Nalcı</p>
+              </div>
+            </div>
+        </div>
+      </div>
+<div>
+</div><!--container end-->
+	<div style="clear;both"></div>
+	</div>
+		<footer>
+			Copyright &copy; 2013, EndLeSs Bilişim
+		</footer>
+</body>
+</html>
