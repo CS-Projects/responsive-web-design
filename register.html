@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<title>20 Dakika Dizisi Kişisel Websitesi</title>
+<style>
+.important{
+	color:red;
+	font-size:12px;
+}
+</style>
+<script src="js/jquery-2.0.3.js"></script>
+<script src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.slidertron-1.1.js"></script>
+<script type="text/javascript">
+function initStorage(){
+	function saveName(){
+		var name = document.getElementById('name');
+		localStorage.setItem('name',name.value);
+	}
+	
+	function saveEmail(){
+		var email = document.getElementById('email');
+		localStorage.setItem('email',email.value);
+	}
+	
+	//Run functions
+	saveName();
+	saveEmail();
+}
+function initStorage1(){
+	function saveFirstName(){
+		var first_name = document.getElementById('first_name');
+		localStorage.setItem('first_name',first_name.value);
+	}
+	function saveLastName(){
+		var last_name = document.getElementById('last_name');
+		localStorage.setItem('last_name',last_name.value);
+	}
+	function saveBirthDate(){
+		var birth_date = document.getElementById('birth_date');
+		localStorage.setItem('birth_date',birth_date.value);
+	}
+	function saveBirthLocation(){
+		var location1 = document.getElementById('location1');
+		localStorage.setItem('location1',location1.value);
+	}
+	function saveMedeniDurum(){
+		var medeni_durum = document.getElementById('medeni_durum');
+		localStorage.setItem('medeni_durum',medeni_durum.value);
+	}
+	function saveAskerlikDurum(){
+		var askerlik_durum = document.getElementById('askerlik_durum');
+		localStorage.setItem('askerlik_durum',askerlik_durum.value);
+	}
+	function saveSürücüBelgesi(){
+		var sürücü_belgesi = document.getElementById('sürücü_belgesi');
+		localStorage.setItem('sürücü_belgesi',sürücü_belgesi.value);
+	}
+	function saveHomeTel(){
+		var phone = document.getElementById('phone');
+		localStorage.setItem('phone',phone.value);
+	}
+	function saveMobileTel(){
+		var phone1 = document.getElementById('phone1');
+		localStorage.setItem('phone1',phone1.value);
+	}
+	function saveEmail1(){
+		var email1 = document.getElementById('email1');
+		if (email1.value == "") {
+	    		alert("Lütfen email adresinizi giriniz.");
+			localStorage.clear;
+	    		
+        	} else {
+			alert("Email adresiniz kaydedildi.");
+			localStorage.setItem('email1',email1.value);
+			localStorage.clear;
+        	} 
+	}
+	function saveUserName(){
+		var user_name = document.getElementById('user_name');
+		if (user_name.value == "") {
+	    		alert("Lütfen kullanıcı adınızı giriniz.");
+			localStorage.clear;
+	    		
+        	} else {
+			alert("Kullanıcı adınız kaydedildi.");
+			localStorage.setItem('user_name',user_name.value);
+			localStorage.clear;
+        	} 
+	}	
+	function savePassword1(){
+		var password1 = document.getElementById('password1');
+		var password2 = document.getElementById('password2');
+        		if (password1.value == "") {
+	    			alert("Lütfen şifrenizi giriniz.");
+				localStorage.clear;
+	  		}
+			else if (password2.value == "") {
+	    			alert("Lütfen şifrenizi tekrar giriniz.");
+				localStorage.clear;
+	  		}
+			else if (password1.value != password2.value) {
+            			password2.setCustomValidity('Şifreler aynı olmalı.');
+	    			alert("Yazdığınız şifreler uyuşmuyor.Tekrar giriniz.");
+				localStorage.clear;
+        		} else {
+            			password2.setCustomValidity('');
+				alert("Şifreniz kaydedildi.");
+				localStorage.setItem('password1',password1.value);
+				if(user_name.value != "" && email1.value != ""){
+					alert("Tüm bilgileriniz kaydedildi.");
+					localStorage.clear;
+				}
+        		}        
+	}
+	function saveUserName1(){
+		var login1 = document.getElementById('login1');
+		localStorage.setItem('login1',login1.value);
+	}
+	function savePassword2(){
+		var password3 = document.getElementById('password3');
+		localStorage.setItem('password3',password3.value);
+	}	
+	//Run functions
+	saveFirstName();
+	saveLastName();
+	saveBirthDate();
+	saveBirthLocation();
+	saveMedeniDurum();
+	saveAskerlikDurum();
+	saveSürücüBelgesi();
+	saveHomeTel();
+	saveMobileTel();
+	saveEmail1();
+	saveUserName();
+	savePassword1();
+	saveUserName1();
+	savePassword2();
+}
+function displayName(){	
+	if(localStorage.getItem('name') != null){
+		document.write('Welcome Back, '+localStorage.getItem('name'));
+	}
+}
+function displayAll(){	
+		document.write('Adınız: '+localStorage.getItem('first_name')+"<br>");
+		document.write('Soyadınız: '+localStorage.getItem('last_name')+"<br>");
+		document.write('Doğum Tarihiniz: '+localStorage.getItem('birth_date')+"<br>");
+		document.write('Doğum Yeriniz: '+localStorage.getItem('location1')+"<br>");
+		document.write('Medeni Durumunuz: '+localStorage.getItem('medeni_durum')+"<br>");
+		document.write('Askerlik Durumunuz: '+localStorage.getItem('askerlik_durum')+"<br>");
+		document.write('Sürücü Belgeniz: '+localStorage.getItem('sürücü_belgesi')+"<br>");
+		document.write('Ev Telefon Numaranız: '+localStorage.getItem('phone')+"<br>");
+		document.write('Cep Telefon Numaranız: '+localStorage.getItem('phone1')+"<br>");
+		document.write('Email adresiniz: '+localStorage.getItem('email1')+"<br>");
+		document.write('Kullanıcı adınız: '+localStorage.getItem('user_name')+"<br>");
+		document.write('Şifreniz: '+localStorage.getItem('password1')+"<br>");
+}	
+function showText(){
+	if(localStorage.getItem('email') == null){
+		document.write('<p>Lütfen adınızı ve e-mail adresinizi giriniz.</p>');
+	} else {
+		document.write('<p><strong>Subscribed Email:</strong> '+localStorage.getItem('email')+'</p> ');
+	}
+}
+
+
+function clearAll(){
+	localStorage.clear();   
+	window.location.reload()
+}
+
+function showHTML() {
+    alert($(this).html())
+}
+
+$(document).ready(function() {
+	$( ".but1" ).hide(10000);
+	$( ".but1" ).show(1000);	
+})
+
+</script>
+</head>
+<body>
+	<div id="container">
+		<header>
+			<div id="logo">
+       	    			<a href="#"><img src="images/20 dakika1.jpg" alt="" /></a>
+            		</div>
+			<h1><span class="blue-text">20 Dakika</span> Dizisi Hakkında Herşey</h1>
+			<div id="social_media">
+               			<a href="#">Follow us</a> &nbsp;&nbsp;
+                		<a href="https://twitter.com/PcEngineer48"><img src="images/icons/twitter_16.png" width="16" height="16" alt="Twitter" /></a>
+                		<a href="https://www.facebook.com/sedat.c.uygur?ref=tn_tnmn"><img src="images/icons/facebook_16.png" width="16" height="16" alt="Twitter" /></a>
+                		<a href="https://plus.google.com/105760255827149276350/posts"><img src="images/social04.png" width="16" height="16" alt="Twitter" /></a>
+                		<a href="https://www.rss.com"><img src="images/icons/rss_16.png" width="16" height="16" alt="Twitter" /></a>
+        		</div>
+		</header>
+		
+		<nav id="menu">
+			<ul>
+				<li class="menuitem"><a href="index.html">Anasayfa</a></li>
+				<li class="menuitem"><a href="about.html">Hakkımızda</a></li>
+				<li class="menuitem"><a href="browse.html">Gelİştİrİcİler</a></li>
+				<li class="menuitem"><a href="contact.html">Başvuru Formu</a></li>
+				<li class="menuitem"><a href="destek.html">İletİşİm</a></li>
+			</ul>
+	    </nav>
+		 
+		 <aside>
+			<nav id="leftmenu">
+			<h3>20 Dakika</h3>
+				<ul>
+					<li><a href="bölüm özeti.html">Bölüm Özetleri</a></li>
+					<li><a href="fragman.html">Fragmanlar</a></li>
+					<li><a href="Olay Günü.html">Olay Günü</a></li>
+					<li><a href="fotograf.html">Fotoğraf Galerisi</a></li>
+					<li><a href="fotograf1.html">Arkaplan Slayt Gösterisi</a></li>
+					<li><a href="audiophoto.html">Dizi Müziğiyle Fotoğraflar</a></li>
+					<li><a href="haberler.html">Haberler</a></li>
+					<li><a href="book.html">Bölüm Günlüğü</a></li>
+					<li><a href="bölümisimleri.html">Tarihi Mekanlar</a></li>
+					<li><a href="künye.html">Künye</a></li>
+					<li><a href="index2.html">3D Künye</a></li>
+				</ul>
+				<div>
+				<br><br>
+				<h3>Aylık Bülten</h3>
+				<script type="text/javascript">
+					showText();
+				</script>
+				<form id="news" onsubmit="initStorage()">
+					Adınız: <input type="text" id="name" name="name">
+					Email: <input type="email" id="email" name="email">
+					<input type="submit" value="Gönder">
+					<a href="#" onClick="clearAll()">Temizle</a>
+				</form>
+				</div>
+			</nav>
+		</aside>
+    
+	<section>
+			<h3>Sitemize Üye Olmak için Kaydol</h3>
+			<form action="index.html" onsubmit="initStorage1()">
+				<p>
+					<label for="name">Adınız:</label>
+					<input type="text" name="first_name" id="first_name" title="Lütfen adınızı giriniz">
+				</p>
+				<p>
+					<label for="name">Soyadınız:</label>
+					<input type="text" name="last_name" id="last_name" title="Lütfen soyadınızı giriniz">
+				</p>
+				<p>
+					<label for="start">Doğum Tarihiniz: </label>
+					<input type="date" name="birth_date" id="birth_date" title="Lütfen doğum tarihinizi giriniz">
+				</p>
+				<p>
+					<label for="location1">Doğum Yeriniz: </label>
+					<input id="location1" name ="location1" list="location1" title="Lütfen doğum yerinizi giriniz">
+				</p>
+				<p>
+				<label for="male">Medeni Durumunuz: </label>
+					<input id="medeni_durum" name ="medeni_durum" list="male" title="Lütfen medeni durumunuzu seçiniz">
+					<datalist id="male">
+					<option value="Bekar">
+					<option value="Ayrı yaşıyor">
+					<option value="Boşanmış">
+					<option value="Evli">
+					</datalist>
+				</p>
+				<p>
+				<label for="female">Askerlik Durumunuz: </label>
+					<input id="askerlik_durum" name ="askerlik_durum" list="female" title="Lütfen askerlik durumunuzu seçiniz">
+					<datalist id="female">
+					<option value="Yapmış">
+					<option value="Tecilli">
+					<option value="Yapmamış">
+					<option value="Kaçak">
+					</datalist>
+				</p>
+				<p>
+				<label for="location">Sürücü Belgesi: </label>
+					<input id="sürücü_belgesi" name ="sürücü_belgesi" list="location" title="Lütfen sürücü belgesini seçiniz">
+					<datalist id="location">
+					<option value="Yok">
+					<option value="A1">
+					<option value="A2">
+					<option value="B">
+					<option value="C">
+					<option value="D">
+					<option value="E">
+					<option value="F">
+					<option value="G">
+					<option value="H">
+					<option value="K">
+					</datalist>
+				</p>
+				<p>
+					<label for="phone">Ev Telefonu Numaranız: </label>
+					<input type="tel" name="phone" id="phone" title="Lütfen ev telefonu numaranızı giriniz">
+				</p>
+				<p>
+					<label for="phone">Cep Telefonu Numaranız: </label>
+					<input type="tel" name="phone1" id="phone1" title="Lütfen cep telefonu numaranızı giriniz">
+				</p>
+				<p>
+					<label for="name">Email Adresiniz:</label>
+					<input type="text" name="email1" id="email1" title="Lütfen email adresinizi giriniz">*
+				</p>
+				<p>
+					<label for="name">Kullanıcı Adınız:</label>
+					<input type="text" name="user_name" id="user_name" title="Lütfen kullanıcı adınızı giriniz">*
+				</p>
+				<p>
+					<label for="password1">Şifreniz:</label>
+					<input type="password" name="password1" id="password1" title="Lütfen şifrenizi giriniz">*
+				</p>
+				<p>
+					<label for="password2">Şifrenizi Tekrar Giriniz:</label>
+					<input type="password" name="password2" id="password2" title="Lütfen şifrenizi tekrar giriniz">*
+				</p>
+				
+	<div style="clear:both;"></div>
+				<p>
+					<button class="but1"><a href="#" onClick="clearAll()">Gönder</a></button>
+				</p>
+				
+			</form>
+			<script type="text/javascript">
+				displayAll();
+    			</script>
+    </section>	
+</div><!--container end-->
+	<div style="clear;both"></div>
+	<footer>
+		Copyright &copy; 2013, EndLeSs Bilişim
+	</footer>
+</body>
+</html>
