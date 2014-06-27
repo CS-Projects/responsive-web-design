@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>20 Dakika Dizisi Kişisel Websitesi</title>
+<link rel="stylesheet" href="../themes/base/jquery.ui.all.css">
+<link rel="stylesheet" href="css/main.css" type="text/css" />
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<style>
+#dialog label, #dialog input { display:block; }
+#dialog label { margin-top: 0.5em; }
+#dialog input, #dialog textarea { width: 95%; }
+#tabs { margin-top: 1em; }
+#tabs li .ui-icon-close { float: left; margin: 0.4em 0.2em 0 0; cursor: pointer; }
+#add_tab { cursor: pointer; }
+#effect {
+		position: relative;
+		width: 680px;
+		height: 135px;
+		padding: 0.4em;
+}
+.ui-tooltip {
+		border: 1px solid white;
+		background: rgba(20, 20, 20, 1);
+		color: white;
+}
+.set {
+		display: inline-block;
+}
+.notification {
+		position: absolute;
+		display: inline-block;
+		font-size: 2em;
+		padding: .5em;
+		box-shadow: 2px 2px 5px -2px rgba(0,0,0,0.5);
+}
+</style>
+<script src="js/jquery-2.0.3.min.js"></script>
+<script src="js/jquery-2.0.3.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.slidertron-1.1.js"></script>
+<script src="../ui/jquery.ui.core.js"></script>
+<script src="../ui/jquery.ui.widget.js"></script>
+<script src="../ui/jquery.ui.position.js"></script>
+<script src="../ui/jquery.ui.tooltip.js"></script>
+<script src="../ui/jquery.ui.button.js"></script>
+<script src="../ui/jquery.ui.menu.js"></script>
+<script src="../ui/jquery.ui.effect.js"></script>
+<script src="../ui/jquery.ui.effect-blind.js"></script>
+<script src="../ui/jquery.ui.effect-shake.js"></script>
+<script src="../ui/jquery.ui.tabs.js"></script>
+<script src="../ui/jquery.ui.dialog.js"></script>
+<script type="text/javascript">
+$(function() {
+	var tabTitle = $( "#tab_title" ),
+		tabContent = $( "#tab_content" ),
+		tabTemplate = "<li><a href='#{href}'>#{label}</a> <span class='ui-icon ui-icon-close' role='presentation'>Remove Tab</span></li>",
+		tabCounter = 2;
+
+	var tabs = $( "#tabs" ).tabs();
+
+		// modal dialog init: custom buttons and a "close" callback reseting the form inside
+	var dialog = $( "#dialog" ).dialog({
+		autoOpen: false,
+		modal: true,
+		buttons: {
+			Ekle: function() {
+				addTab();
+				$( this ).dialog( "close" );
+			},
+			İptal: function() {
+				$( this ).dialog( "close" );
+			}
+		},
+		close: function() {
+			form[ 0 ].reset();
+		}
+	});
+
+		// addTab form: calls addTab function on submit and closes the dialog
+	var form = dialog.find( "form" ).submit(function( event ) {
+		addTab();
+		dialog.dialog( "close" );
+		event.preventDefault();
+	});
+
+		// actual addTab function: adds new tab using the input from the form above
+	function addTab() {
+		var label = tabTitle.val() || "Tab " + tabCounter,
+			id = "tabs-" + tabCounter,
+			li = $( tabTemplate.replace( /#\{href\}/g, "#" + id ).replace( /#\{label\}/g, label ) ),
+			tabContentHtml = tabContent.val() || "Tab " + tabCounter + " content.";
+
+		tabs.find( ".ui-tabs-nav" ).append( li );
+		tabs.append( "<div id='" + id + "'><p>" + tabContentHtml + "</p></div>" );
+		tabs.tabs( "refresh" );
+		tabCounter++;
+	}
+
+		// addTab button: just opens the dialog
+	$( "#add_tab" )
+		.button()
+		.click(function() {
+			dialog.dialog( "open" );
+		});
+
+		// close icon: removing the tab on click
+	tabs.delegate( "span.ui-icon-close", "click", function() {
+		var panelId = $( this ).closest( "li" ).remove().attr( "aria-controls" );
+		$( "#" + panelId ).remove();
+		tabs.tabs( "refresh" );
+	});
+
+	tabs.bind( "keyup", function( event ) {
+		if ( event.altKey && event.keyCode === $.ui.keyCode.BACKSPACE ) {
+			var panelId = tabs.find( ".ui-tabs-active" ).remove().attr( "aria-controls" );
+			$( "#" + panelId ).remove();
+			tabs.tabs( "refresh" );
+		}
+	});
+});
+$(function() {
+	function runEffect() {
+		var options = {};
+		$( "#effect" ).toggle( "shake", options, 500 );
+	};
+		// set effect from select menu value
+	$( "#button" ).click(function() {
+		runEffect();
+		return false;
+	});
+	
+});
+$(function() {
+$( "button" ).each(function() {
+	var button = $( this ).button({
+		icons: {
+			primary: $( this ).data( "icon" )
+		},
+		text: !!$( this ).attr( "title" )
+	});
+	button.click(function() {
+		notify( button );
+	});
+});
+$( ".set" ).buttonset({
+	items: "button"
+});
+
+$( document ).tooltip({
+	position: {
+		my: "center top",
+		at: "center+10 bottom-105",
+	},
+	show: {
+		duration: "fast"
+	},
+	hide: {
+		effect: "hide"
+	}
+});
+});
+function initStorage(){
+	function saveName(){
+		var name = document.getElementById('name');
+		localStorage.setItem('name',name.value);
+	}
+	
+	function saveEmail(){
+		var email = document.getElementById('email');
+		localStorage.setItem('email',email.value);
+	}
+	
+	//Run functions
+	saveName();
+	saveEmail();
+}
+
+function displayName(){	
+	if(localStorage.getItem('name') != null){
+		document.write('Welcome Back, '+localStorage.getItem('name'));
+	}
+}
+	
+function showText(){
+	if(localStorage.getItem('email') == null){
+		document.write('<p>Lütfen adınızı ve e-mail adresinizi giriniz.</p>');
+	} else {
+		document.write('<p><strong>Subscribed Email:</strong> '+localStorage.getItem('email')+'</p> ');
+	}
+}
+
+function clearAll(){
+	localStorage.clear();   
+	window.location.reload()
+}
+</script>
+</head>
+<body>
+	<div id="container">
+		<header>
+			<div id="logo">
+       	    			<a href="#"><img src="images/20 dakika1.jpg" alt="" /></a>
+            		</div>
+			<h1><span class="blue-text">20 Dakika</span> Dizisi Hakkında Herşey</h1>
+			<h2><a href="register.html"> Kayıt Ol</h2>
+			<div id="social_media">
+               			<a href="#">Follow us</a> &nbsp;&nbsp;
+                		<a href="https://twitter.com/PcEngineer48"><img src="images/icons/twitter_16.png" width="16" height="16" alt="Twitter" /></a>
+                		<a href="https://www.facebook.com/sedat.c.uygur?ref=tn_tnmn"><img src="images/icons/facebook_16.png" width="16" height="16" alt="Twitter" /></a>
+                		<a href="https://plus.google.com/105760255827149276350/posts"><img src="images/social04.png" width="16" height="16" alt="Twitter" /></a>
+                		<a href="https://www.rss.com"><img src="images/icons/rss_16.png" width="16" height="16" alt="Twitter" /></a>
+        		</div>
+		</header>
+		
+		<nav id="menu">
+			<ul>
+				<li class="menuitem"><a href="index.html">Anasayfa</a></li>
+				<li class="menuitem"><a href="about.html">Hakkımızda</a></li>
+				<li class="menuitem"><a href="browse.html">Gelİştİrİcİler</a></li>
+				<li class="menuitem"><a href="contact.html">Başvuru Formu</a></li>
+				<li class="menuitem"><a href="destek.html">İletİşİm</a></li>
+			</ul>
+	    </nav>
+		 
+		 <aside>
+			<nav id="leftmenu">
+			<h3>20 Dakika</h3>
+				<ul>
+					<li><a href="bölüm özeti.html">Bölüm Özetleri</a></li>
+					<li><a href="Olay Günü.html">Olay Günü</a></li>
+					<li><a href="fotograf.html">Fotoğraf Galerisi</a></li>
+					<li><a href="fotograf1.html">Arkaplan Slayt Gösterisi</a></li>
+					<li><a href="audiophoto.html">Dizi Müziğiyle Fotoğraflar</a></li>
+					<li><a href="haberler.html">Haberler</a></li>
+					<li><a href="book.html">Bölüm Günlüğü</a></li>
+					<li><a href="bölümisimleri.html">Tarihi Mekanlar</a></li>
+					<li><a href="künye.html">Künye</a></li>
+					<li><a href="index2.html">3D Künye</a></li>
+				</ul>
+				<div>
+				<br><br>
+				<h3>Aylık Bülten</h3>
+				<script type="text/javascript">
+					showText();
+				</script>
+				<form id="news" onsubmit="initStorage()">
+					Adınız: <input type="text" id="name" name="name">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					E-mail adresiniz: <input type="email" id="email" name="email">
+					<input type="submit" value="Gönder">
+					<a href="#" onClick="clearAll()">Temizle</a>
+				</form>
+				</div>
+			</nav>
+		</aside>
+	<section>
+		<h1>20 Dakika Dizisi Fragmanları</h1>
+<h4>20 Dakika 1.bölüm Fragmanı Demirbahçe</h4>
+
+ <video id="1.bölüm" width="480" height="360" controls>
+ <source src="video/fragman1.mp4" type="video/mp4">
+Tarayıcın HTML5 video etiketini desteklemiyor.
+</video>
+
+
+<div class="tools">
+	<span class="set">
+		<button data-icon="ui-icon-circle-arrow-n" title="I like this">Like</button>
+		<button data-icon="ui-icon-circle-arrow-s">I dislike this</button>
+	</span>
+	<div class="set">
+		<button data-icon="ui-icon-circle-plus" title="Add to watch later">Add to</button>
+		<button class="menu" data-icon="ui-icon-triangle-1-s">Add to favorites or playlist</button>
+	</div>
+	<button title="Share this video">Share</button>
+	<button data-icon="ui-icon-alert">Flag as inappropiate</button>
+  	<button onclick="makeBig()" title="HD">HD</button>
+  	<button onclick="makeSmall()" title="360p">360p</button>
+  	<button onclick="makeNormal()" title="480p">480p</button>
+</div>
+<script> 
+var myVideo=document.getElementById("1.bölüm"); 
+
+function playPause(){ 
+if (myVideo.paused) 
+  myVideo.play(); 
+else 
+  myVideo.pause(); 
+} 
+
+function makeBig(){
+  myVideo.width=680;
+  myVideo.height=480;  
+}
+
+function makeSmall(){ 
+  myVideo.width=360;
+  myVideo.height=270; 
+} 
+
+function makeNormal(){ 
+  myVideo.width=480;
+  myVideo.height=360; 
+}
+</script>
+<div id="effect">Halaskar ailesinin kapısı çalındı bir gece. Polisler içeri daldı ve Ali Halaskar'ın eşi Melek Halaskar'ı cinayete teşebbüsten tutuklayıp, kelepçeleyip götürdüler. Ali hiçbir şey yapamadı.Her şey çok hızlı oldu.Bugüne kadar bir faturayı bile vaktinde yatırmayı becerememiş tarih öğretmeni Ali Halaskar, karısının masumiyetini ıspatlama peşinde bir yola çıktı. Yol uzundu. Fakat Ali'nin sadece 20 dakikası vardı.Küçük oğlunun bütün sorumluluğunu asi ablasına bırakmak için, karısını bu kabusun biteceğine inandırmak için, yılların hırsızı Kedi'yi ona yardım etmeye ikna etmek için, komiser Ozan'ın doğru ipuçlarını yakalamasını ummak için, karısını hapisten kaçırmak için..."Sadece 20 dakika"</div>
+<button id="button">Gizle/Göster</button>
+<div id="dialog" title="Yorum">
+	<form>
+		<fieldset class="ui-helper-reset">
+			<label for="tab_title">Konu</label>
+			<input type="text" name="tab_title" id="tab_title" value="" class="ui-widget-content ui-corner-all" />
+			<label for="tab_content">Mesaj</label>
+			<textarea name="tab_content" id="tab_content" class="ui-widget-content ui-corner-all"></textarea>
+		</fieldset>
+	</form>
+</div>
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">1.bölüm</a> <span class="ui-icon ui-icon-close" role="presentation">Remove Tab</span></li>
+	</ul>
+	<div id="tabs-1">
+		<p>Dizi film uyarlaması olduğu için ilk başta tereddütlerim olsa da izledikten sonra şüphelerim yerini heyecana bıraktı.Dizideki oyunculuklar ve senaryo bence  </p>
+	</div>
+</div>
+<button id="add_tab">Yorum ekle</button>
+	<div class="pagination">
+        <ul>
+	    <li><a href="fragman.html" onclick="showPage(1); return false;">1</a></li>
+	    <li><a href="fragman1.html" onclick="showPage(2); return false;">2</a></li>
+	    <li><a href="fragman2.html" onclick="showPage(3); return false;">3</a></li>
+	    <li><a href="fragman3.html" onclick="showPage(4); return false;">4</a></li>
+	    <li><a href="fragman4.html" onclick="showPage(5); return false;">5</a></li>
+	    <li><a href="fragman5.html" onclick="showPage(6); return false;">6</a></li>
+	    <li><a href="fragman6.html" onclick="showPage(7); return false;">7</a></li>
+	    <li><a href="fragman7.html" onclick="showPage(8); return false;">8</a></li>
+	    <li><a href="fragman8.html" onclick="showPage(9); return false;">9</a></li>
+	    <li><a href="fragman9.html" onclick="showPage(10); return false;">10</a></li>
+	    <li><a href="fragman10.html" onclick="showPage(11); return false;">11</a></li>
+	    <li><a href="fragman11.html" onclick="showPage(12); return false;">12</a></li>
+	    <li><a href="fragman12.html" onclick="showPage(13); return false;">13</a></li>
+	    <li><a href="fragman13.html" onclick="showPage(14); return false;">14</a></li>
+	    <li><a href="fragman14.html" onclick="showPage(15); return false;">15</a></li>
+	    <li><a href="fragman15.html" onclick="showPage(16); return false;">16</a></li>
+	    <li><a href="fragman16.html" onclick="showPage(17); return false;">17</a></li>
+	    <li><a href="fragman17.html" onclick="showPage(18); return false;">18</a></li>
+	    <li><a href="fragman18.html" onclick="showPage(19); return false;">19</a></li>
+	    <li><a href="fragman19.html" onclick="showPage(20); return false;">20</a></li>
+	    <li><a href="fragman20.html" onclick="showPage(21); return false;">21</a></li>
+	    <li><a href="fragman21.html" onclick="showPage(22); return false;">22</a></li>
+	    <li><a href="fragman22.html" onclick="showPage(23); return false;">23</a></li>
+	    <li><a href="fragman23.html" onclick="showPage(24); return false;">24</a></li>
+	    <li><a href="fragman24.html" onclick="showPage(30); return false;">Final</a></li>
+            <li><a href="fragman1.html" id="next" class="prevnext"> »</a></li>
+        </ul>
+        <br />
+        <div id="page_number" class="page_number">1</div>
+        </div>
+</div><!--container end-->
+	<footer>
+		Copyright &copy; 2013, EndLeSs Bilişim 
+	</footer>
+</body>
+</html>
