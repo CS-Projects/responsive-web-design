@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../themes/base/jquery.ui.all.css">
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<title>20 Dakika Dizisi Kişisel Websitesi</title>
+<style>
+	#gallery { float: left; width: 65%; min-height: 12em; }
+	.gallery.custom-state-active { background: #eee; }
+	.gallery li { float: left; width: 120px; padding: 0.4em; margin: 0 0.4em 0.4em 0; text-align: center; }
+	.gallery li h5 { margin: 0 0 0.4em; cursor: move; }
+	.gallery li a { float: right; }
+	.gallery li a.ui-icon-zoomin { float: left; }
+	.gallery li img { width: 100%; cursor: move; }
+	#trash { float: right; width: 30%; min-height: 18em; padding: 1%; }
+	#trash h4 { line-height: 12px; margin: 0 0 0.4em; padding-top:0.4em; }
+	#trash h4 .ui-icon { float: left; }
+	#trash .gallery h5 { display: none; }
+</style>
+<script src="js/jquery-2.0.3.js"></script>
+<script src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.slidertron-1.1.js"></script>
+<script src="../ui/jquery.ui.position.js"></script>
+<script src="../ui/jquery.ui.core.js"></script>
+<script src="../ui/jquery.ui.widget.js"></script>
+<script src="../ui/jquery.ui.mouse.js"></script>
+<script src="../ui/jquery.ui.draggable.js"></script>
+<script src="../ui/jquery.ui.droppable.js"></script>
+<script src="../ui/jquery.ui.resizable.js"></script>
+<script src="../ui/jquery.ui.dialog.js"></script>
+<script type="text/javascript">
+$(function() {
+		// there's the gallery and the trash
+		var $gallery = $( "#gallery" ),
+			$trash = $( "#trash" );
+
+		// let the gallery items be draggable
+		$( "li", $gallery ).draggable({
+			cancel: "a.ui-icon", // clicking an icon won't initiate dragging
+			revert: "invalid", // when not dropped, the item will revert back to its initial position
+			containment: "document",
+			helper: "clone",
+			cursor: "move"
+		});
+
+		// let the trash be droppable, accepting the gallery items
+		$trash.droppable({
+			accept: "#gallery > li",
+			activeClass: "ui-state-highlight",
+			drop: function( event, ui ) {
+				deleteImage( ui.draggable );
+			}
+		});
+
+		// let the gallery be droppable as well, accepting items from the trash
+		$gallery.droppable({
+			accept: "#trash li",
+			activeClass: "custom-state-active",
+			drop: function( event, ui ) {
+				recycleImage( ui.draggable );
+			}
+		});
+
+		// image deletion function
+		var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Resmi geri almak için tıkla' class='ui-icon ui-icon-refresh'>Resmi geri al</a>";
+		function deleteImage( $item ) {
+			$item.fadeOut(function() {
+				var $list = $( "ul", $trash ).length ?
+					$( "ul", $trash ) :
+					$( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $trash );
+
+				$item.find( "a.ui-icon-trash" ).remove();
+				$item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
+					$item
+						.animate({ width: "48px" })
+						.find( "img" )
+							.animate({ height: "36px" });
+				});
+			});
+		}
+
+		// image recycle function
+		var trash_icon = "<a href='link/to/trash/script/when/we/have/js/off' title='Resmi silmek için tıklayın' class='ui-icon ui-icon-trash'>Resmi sil</a>";
+		function recycleImage( $item ) {
+			$item.fadeOut(function() {
+				$item
+					.find( "a.ui-icon-refresh" )
+						.remove()
+					.end()
+					.css( "width", "96px")
+					.append( trash_icon )
+					.find( "img" )
+						.css( "height", "72px" )
+					.end()
+					.appendTo( $gallery )
+					.fadeIn();
+			});
+		}
+
+		// image preview function, demonstrating the ui.dialog used as a modal window
+		function viewLargerImage( $link ) {
+			var src = $link.attr( "href" ),
+				title = $link.siblings( "img" ).attr( "alt" ),
+				$modal = $( "img[src$='" + src + "']" );
+
+			if ( $modal.length ) {
+				$modal.dialog( "open" );
+			} else {
+				var img = $( "<img alt='" + title + "' width='384' height='288' style='display: none; padding: 8px;' />" )
+					.attr( "src", src ).appendTo( "body" );
+				setTimeout(function() {
+					img.dialog({
+						title: title,
+						width: 400,
+						modal: true
+					});
+				}, 1 );
+			}
+		}
+
+		// resolve the icons behavior with event delegation
+		$( "ul.gallery > li" ).click(function( event ) {
+			var $item = $( this ),
+				$target = $( event.target );
+
+			if ( $target.is( "a.ui-icon-trash" ) ) {
+				deleteImage( $item );
+			} else if ( $target.is( "a.ui-icon-zoomin" ) ) {
+				viewLargerImage( $target );
+			} else if ( $target.is( "a.ui-icon-refresh" ) ) {
+				recycleImage( $item );
+			}
+
+			return false;
+		});
+});
+function initStorage(){
+	function saveName(){
+		var name = document.getElementById('name');
+		localStorage.setItem('name',name.value);
+	}
+	
+	function saveEmail(){
+		var email = document.getElementById('email');
+		localStorage.setItem('email',email.value);
+	}
+	
+	//Run functions
+	saveName();
+	saveEmail();
+}
+
+function displayName(){	
+	if(localStorage.getItem('name') != null){
+		document.write('Welcome Back, '+localStorage.getItem('name'));
+	}
+}
+	
+function showText(){
+	if(localStorage.getItem('email') == null){
+		document.write('<p>Lütfen adınızı ve e-mail adresinizi giriniz.</p>');
+	} else {
+		document.write('<p><strong>Subscribed Email:</strong> '+localStorage.getItem('email')+'</p> ');
+	}
+}
+
+function clearAll(){
+	localStorage.clear();   
+	window.location.reload()
+}
+</script>
+</head>
+<body>
+	<div id="container">
+		<header>
+			<div id="logo">
+       	    			<a href="#"><img src="images/20 dakika1.jpg" alt="" /></a>
+            		</div>
+			<h1><span class="blue-text">20 Dakika</span> Dizisi Hakkında Herşey</h1>
+			<h2><a href="register.html"> Kayıt Ol</h2>
+			<div id="social_media">
+               			<a href="#">Follow us</a> &nbsp;&nbsp;
+                		<a href="https://twitter.com/PcEngineer48"><img src="images/icons/twitter_16.png" width="16" height="16" alt="Twitter" /></a>
+                		<a href="https://www.facebook.com/sedat.c.uygur?ref=tn_tnmn"><img src="images/icons/facebook_16.png" width="16" height="16" alt="Twitter" /></a>
+                		<a href="https://plus.google.com/105760255827149276350/posts"><img src="images/social04.png" width="16" height="16" alt="Twitter" /></a>
+                		<a href="www.rss.com"><img src="images/icons/rss_16.png" width="16" height="16" alt="Twitter" /></a>
+        		</div>
+		</header>
+		
+		<nav id="menu">
+			<ul>
+				<li class="menuitem"><a href="index.html">Anasayfa</a></li>
+				<li class="menuitem"><a href="about.html">Hakkımızda</a></li>
+				<li class="menuitem"><a href="browse.html">Gelİştİrİcİler</a></li>
+				<li class="menuitem"><a href="contact.html">Başvuru Formu</a></li>
+				<li class="menuitem"><a href="destek.html">İletİşİm</a></li>
+			</ul>
+	    </nav>
+		 
+		 <aside>
+			<nav id="leftmenu">
+			<h3>20 Dakika</h3>
+				<ul>
+					<li><a href="bölüm özeti.html">Bölüm Özetleri</a></li>
+					<li><a href="fragman.html">Fragmanlar</a></li>
+					<li><a href="Olay Günü.html">Olay Günü</a></li>
+					<li><a href="fotograf1.html">Arkaplan Slayt Gösterisi</a></li>
+					<li><a href="audiophoto.html">Dizi Müziğiyle Fotoğraflar</a></li>
+					<li><a href="haberler.html">Haberler</a></li>
+					<li><a href="book.html">Bölüm Günlüğü</a></li>
+					<li><a href="bölümisimleri.html">Tarihi Mekanlar</a></li>
+					<li><a href="künye.html">Künye</a></li>
+					<li><a href="index2.html">3D Künye</a></li>
+				</ul>
+				<div>
+				<br><br>
+				<h3>Aylık Bülten</h3>
+				<script type="text/javascript">
+					showText();
+				</script>
+				<form id="news" onsubmit="initStorage()">
+					Adınız: <input type="text" id="name" name="name">
+					Email: <input type="email" id="email" name="email">
+					<input type="submit" value="Gönder">
+					<a href="#" onClick="clearAll()">Temizle</a>
+				</form>
+				</div>
+			</nav>
+		</aside>
+	<section>
+	<h1>20 Dakika Dizisi Fotoğraf Slayt Gösterisi</h1>
+	<div class="ui-widget ui-helper-clearfix">
+
+	<ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">1.bölüm fotoğrafı</h5>
+			<img src="images/small/1a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/1a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">2.bölüm fotoğrafı</h5>
+			<img src="images/small/2a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/2a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">3.bölüm fotoğrafı</h5>
+			<img src="images/small/3a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/3a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">4.bölüm fotoğrafı</h5>
+			<img src="images/small/4a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/4a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">5.bölüm fotoğrafı</h5>
+			<img src="images/small/5a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/5a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">6.bölüm fotoğrafı</h5>
+			<img src="images/small/6a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/6a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">7.bölüm fotoğrafı</h5>
+			<img src="images/small/7a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/7a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">8.bölüm fotoğrafı</h5>
+			<img src="images/small/8a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/8a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">9.bölüm fotoğrafı</h5>
+			<img src="images/small/9a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/9a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">10.bölüm fotoğrafı</h5>
+			<img src="images/small/10a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/10a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">11.bölüm fotoğrafı</h5>
+			<img src="images/small/11a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/11a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">12.bölüm fotoğrafı</h5>
+			<img src="images/small/12a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/12a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">13.bölüm fotoğrafı</h5>
+			<img src="images/small/13a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/13a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">14.bölüm fotoğrafı</h5>
+			<img src="images/small/14a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/14a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">15.bölüm fotoğrafı</h5>
+			<img src="images/small/15a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/15a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">16.bölüm fotoğrafı</h5>
+			<img src="images/small/16a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/16a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">17.bölüm fotoğrafı</h5>
+			<img src="images/small/17a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/17a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">18.bölüm fotoğrafı</h5>
+			<img src="images/small/18a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/18a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">19.bölüm fotoğrafı</h5>
+			<img src="images/small/19a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/19a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">20.bölüm fotoğrafı</h5>
+			<img src="images/small/20a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/20a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">21.bölüm fotoğrafı</h5>
+			<img src="images/small/21a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/21a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">22.bölüm fotoğrafı</h5>
+			<img src="images/small/22a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/22a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">23.bölüm fotoğrafı</h5>
+			<img src="images/small/23a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/23a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">24.bölüm fotoğrafı</h5>
+			<img src="images/small/24a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/24a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+		<li class="ui-widget-content ui-corner-tr">
+			<h5 class="ui-widget-header">Final bölüm fotoğrafı</h5>
+			<img src="images/small/25a.jpg" alt="" width="240" height="160" />
+			<a href="images/large/25a.jpg" title="Resmi büyütmek için tıklayınız" class="ui-icon ui-icon-zoomin">Daha büyük resim için</a>
+			<a href="link/to/trash/script/when/we/have/js/off" title="Resmi silmek için tıklayınız" class="ui-icon ui-icon-trash">Resmi sil</a>
+		</li>
+	</ul>
+	<div id="trash" class="ui-widget-content ui-state-default">
+		<h4 class="ui-widget-header"><span class="ui-icon ui-icon-trash">Trash</span> Geri Dönüşüm Kutusu</h4>
+	</div>
+	</div>
+	</div><!--container end-->
+	<div style="clear;both"></div>
+	<footer>
+		Copyright &copy; 2013, EndLeSs Bilişim
+	</footer>
+</body>
+</html>
