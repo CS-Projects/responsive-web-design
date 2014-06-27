@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<title>20 Dakika Dizisi Kişisel Websitesi</title>
+<script src="js/jquery-2.0.3.js"></script>
+<script src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.slidertron-1.1.js"></script>
+<script type="text/javascript">
+function initStorage(){
+	function saveName(){
+		var name = document.getElementById('name');
+		localStorage.setItem('name',name.value);
+	}
+	
+	function saveEmail(){
+		var email = document.getElementById('email');
+		localStorage.setItem('email',email.value);
+	}
+	
+	//Run functions
+	saveName();
+	saveEmail();
+}
+
+function displayName(){	
+	if(localStorage.getItem('name') != null){
+		document.write('Welcome Back, '+localStorage.getItem('name'));
+	}
+}
+	
+function showText(){
+	if(localStorage.getItem('email') == null){
+		document.write('<p>Lütfen adınızı ve e-mail adresinizi giriniz.</p>');
+	} else {
+		document.write('<p><strong>Subscribed Email:</strong> '+localStorage.getItem('email')+'</p> ');
+	}
+}
+
+function clearAll(){
+	localStorage.clear();   
+	window.location.reload()
+}
+</script>
+</head>
+<body>
+	<div id="container">
+		<header>
+			<div id="logo">
+       	    			<a href="#"><img src="images/20 dakika1.jpg" alt="" /></a>
+            		</div>
+			<h1><span class="blue-text">20 Dakika</span> Dizisi Hakkında Herşey</h1>
+			<h2><a href="register.html"> Kayıt Ol</h2>
+			<div id="social_media">
+               			<a href="#">Follow us</a> &nbsp;&nbsp;
+                		<a href="https://twitter.com/PcEngineer48"><img src="images/icons/twitter_16.png" width="16" height="16" alt="Twitter" /></a>
+                		<a href="https://www.facebook.com/sedat.c.uygur?ref=tn_tnmn"><img src="images/icons/facebook_16.png" width="16" height="16" alt="Twitter" /></a>
+                		<a href="https://plus.google.com/105760255827149276350/posts"><img src="images/social04.png" width="16" height="16" alt="Twitter" /></a>
+                		<a href="https://www.rss.com"><img src="images/icons/rss_16.png" width="16" height="16" alt="Twitter" /></a>
+        		</div>
+		</header>
+		
+		<nav id="menu">
+			<ul>
+				<li class="menuitem"><a href="index.html">Anasayfa</a></li>
+				<li class="menuitem"><a href="about.html">Hakkımızda</a></li>
+				<li class="menuitem"><a href="browse.html">Gelİştİrİcİler</a></li>
+				<li class="menuitem"><a href="contact.html">Başvuru Formu</a></li>
+				<li class="menuitem"><a href="destek.html">İletİşİm</a></li>
+			</ul>
+	    </nav>
+		 
+		 <aside>
+			<nav id="leftmenu">
+			<h3>20 Dakika</h3>
+				<ul>
+					<li><a href="bölüm özeti.html">Bölüm Özetleri</a></li>
+					<li><a href="fragman.html">Fragmanlar</a></li>
+					<li><a href="Olay Günü.html">Olay Günü</a></li>
+					<li><a href="fotograf.html">Fotoğraf Galerisi</a></li>
+					<li><a href="fotograf1.html">Arkaplan Slayt Gösterisi</a></li>
+					<li><a href="audiophoto.html">Dizi Müziğiyle Fotoğraflar</a></li>
+					<li><a href="book.html">Bölüm Günlüğü</a></li>
+					<li><a href="bölümisimleri.html">Tarihi Mekanlar</a></li>
+					<li><a href="künye.html">Künye</a></li>
+					<li><a href="index2.html">3D Künye</a></li>
+				</ul>
+				<div>
+				<br><br>
+				<h3>Aylık Bülten</h3>
+				<script type="text/javascript">
+					showText();
+				</script>
+				<form id="news" onsubmit="initStorage()">
+					Adınız: <input type="text" id="name" name="name">
+					Email: <input type="email" id="email" name="email">
+					<input type="submit" value="Gönder">
+					<a href="#" onClick="clearAll()">Temizle</a>
+				</form>
+				</div>
+			</nav>
+		</aside>
+	<section>
+		<h1>20 Dakika Dizisi Haberleri</h1>
+<img align="left" class="float" src="images/h9.jpg" alt="web developer directory">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<h2>Tam Kadro Brunch</h2>
+<p>Ünlü oyuncu Esra Akkaya'nın sahibi olduğu Kalamış'taki Tatlı Huzur isimli kafe ünlü oyuncuların buluşma yeri oldu.</p>
+<p>20 Dakika dizisinde rol alan Esra Akkaya, rol arkadaşlarını brunchta ağırladı. 20 Dakika'nın yıldızları Tuba Büyüküstün, İlker Aksum, Fırat Çelik, Bülent Emin Yarar, Mehmet Esen'in de olduğu dizi oyuncuları tam kadro brunchta buluştu. Tatlı Huzur kafede ünlü oyuncular Kıvanç Tatlıtuğ ve Berna Laçin de kahvaltı keyfi yaptı. Ünlü oyuncuların keyifli buluşması fotoğraflara da yansıdı.</p>
+<hr/>
+<img class="float" src="images/h5.jpg" alt="web developer directory">
+<h2>Fırat Çelik Komiser olmaya hazırlanıyor</h2>
+<p>Fırat Tuba’nın peşinde!</p>
+<p>Star’da ekrana gelecek yeni dizisi ‘20 Dakika’da Komiser Ozan karekteriyle izleyeceğimiz Fırat Çelik, rolü için cinayet büro çalışanlarından yardım aldı.</p>
+<p>Dizide Melek Halaskar rolüyle izleyeceğimiz Tuba Büyüküstün  cinayet zanlısı olarak  tutuklanınca, Komiser Ozan  gerçekleri ortaya çıkarmak için ipuçlarının peşinden koşar.</p>
+<p>Tuğba Büyüküstün ve İlker Aksum’un başrollerini paylaştığı, Ay Yapım'ın yapımcılığını üstlendiği, senaryosunu Kerem Deren ve Pınar Bulut'un  kaleme aldığı 20 Dakika’da  birbirlerini ölesiye seven Ali ve Melek'in aşk öyküsü anlatılıyor.</p>
+<hr/>
+<img class="float" src="images/h6.jpg" alt="web developer directory">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<h2>Aşk uğruna neler yapılabilir?</h2>
+<p>Sevdiği kadınla evlenmesi 4 yılını aldı</p>
+<p>İstediği işi alması 9 yılını</p>
+<p>Kendi evine sahip olması için 10 yıl çalıştı</p>
+<p>İki çocuk yetiştirmesi 12</p>
+<p>Ailesi ile mutlu bir hayat kurması 35 yıl aldı</p>
+<p>HER ŞEYİNİ KAYBETMESİ....20 DAKİKA</p>
+<p>Ay Yapım'ın yapımcılığını üstlendiği, senaryosunu Kerem Deren ve Pınar Bulut'un  kaleme aldığı 20 Dakika birbirlerini ölesiye seven Ali ve Melek'in aşk öyküsünü anlatıyor.</p> 
+<p>Serdar Işık'ın yönetmen koltuğunda oturduğu  dizide Tuba Büyüküstün ve İlker Aksum başrolleri paylaşıyor. İpek Bilgin, Bülent Emin Yarar, Cihat Tamer, Ayten Uncuoğlu, Fırat Çelik, Müjde Uzman  ve daha bir çok usta isim bu aşk hikayesi için  biraraya geldi.</p> 
+<p>Halaskar ailesinin kapısı çalınır bir gece. Polisler içeri dalar ve Ali Halaskar'ın eşi Melek’i cinayete teşebbüsten tutuklar. Ali hiçbir şey yapamaz. Her şey çok hızlı gelişir.</p>
+<p>Bugüne kadar bir faturayı bile yatırmayı becerememiş tarih öğretmeni Ali, karısının masumiyetini ispatlama peşinde bir yola çıkar. Yol çok uzundur. Fakat Ali'nin sadece 20 dakikası vardır.</p>
+<p>Birbirlerini ölesiye seven ve birbirleri uğruna hayatlarını feda eden Ali ve Melek'in aşk öyküsünü anlatan 20 Dakika, Star’da yayınlanacak.</p>
+<hr/>
+<img class="float" src="images/h7.jpg" alt="web developer directory">
+<h2>Tuba Büyüküstün’ün Çocukları!</h2>
+<p>Star’da Aralık ayında ekrana gelecek olan 20 Dakika’nın başrol oyuncusu Tuba Büyüküstün’ün dizideki çocukları belli oldu.</p> 
+<p>Ay Yapım'ın yapımcılığını üstlendiği, senaryosunu Kerem Deren ve Pınar Bulut'un  kaleme aldığı 20 Dakika birbirlerini ölesiye seven Ali ve Melek'in aşk öyküsünü alatıyor.</p> 
+<p>Miray Akay ve Özgür Ege Nalcı’yı  20 Dakika’da Tuba Büyüküstün’ün çocukları  olacak.Dizide erken yaşta anne olan Melek kendi çapında bir yemek şirketi sahibidir. Küçük mutlu ailesinde, Ali (İlker Aksum) de dahil üç çocuğa hem annelik hem babalık yapar. Mutlu hayatı cinayetle suçlanmasıyla alt üst olur.</p>
+<hr/>
+<img class="float" src="images/h8.jpg" alt="web developer directory">
+<h2>Bülent Emin Yarar yine setlerde</h2>
+<p>Tuba Büyüküstün ve İlker Aksum’un başrolünü  paylaştığı, yakında Star’da başlayacak  20 Dakika dizisi oyuncu kadrosu ile şimdiden konuşulmaya başladı.</p>
+<h4>Bülent Emin Yarar yine setlerde!</h4>
+<p>Ay Yapım'ın yapımcılığını üstlendiği, senaryosunu Kerem Deren ve Pınar Bulut'un  kaleme aldığı dizide usta oyuncu Bülent Emin Yarar “Kedi” rolü ile ekrana gelecek. Eski bir profesyonel hırsız olan “Kedi” tüm bildiklerini karısını hapisten kurtarmak isteyen Ali (İlker Aksum) ile paylaşacak.</p> 
+<h4>Müjde Uzman da “Kuzgun” rolüyle 20 Dakika’da!</h4>
+<p>Güzel oyuncu Müjde Uzman’ı “Kedi”nin ihmal edilmiş kızı “Kuzgun” rolüyle izleyeceğiz. Bu hayatta yapamayacağı şey, uyduramayacağı kılıf yok Kuzgun'un. İşte bu becerisiyle Ali'nin (İlker Aksum) yanında yerini alacak. Girdiği yeni yolda Ali'nin vazgeçilmez yardımcısı olacak.</p>
+</div><!--container end-->
+	<div style="clear;both"></div>
+	<footer>
+		Copyright &copy; 2013, EndLeSs Bilişim
+	</footer>
+</body>
+</html>
