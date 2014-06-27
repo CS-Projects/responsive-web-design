@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="images/20 dakika1.png" sizes="32x32">
+<link rel="stylesheet" href="../themes/base/jquery.ui.all.css">
+<link href="css/layout.css" rel="stylesheet" type="text/css" />
+<link href="css/menu.css" rel="stylesheet" type="text/css" />
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<title>20 Dakika Dizisi Kişisel Websitesi</title>
+<script src="js/jquery-2.0.3.js"></script>
+<script src="js/jquery-2.0.3.min.js"></script>
+<script src="js/script1.js"></script>
+<script type="text/javascript" src="js/jquery.slidertron-1.1.js"></script>
+<script type="text/javascript" src="js/jquery1.js"></script>
+<script type="text/javascript" src="js/easySlider1.5.js"></script>
+<script type="text/javascript" src="js/tabs.js"></script>
+<script src="../ui/jquery.ui.core.js"></script>
+<script src="../ui/jquery.ui.widget.js"></script>
+<script src="../ui/jquery.ui.datepicker.js"></script>
+<script type="text/javascript">
+$(function() {
+	$( "#datepicker" ).datepicker({
+		changeMonth: true,
+		changeYear: true
+	});
+});
+function initStorage(){
+	function saveName(){
+		var name = document.getElementById('name');
+		localStorage.setItem('name',name.value);
+	}
+	
+	function saveEmail(){
+		var email = document.getElementById('email');
+		localStorage.setItem('email',email.value);
+	}
+	
+	//Run functions
+	saveName();
+	saveEmail();
+}
+
+function displayName(){	
+	if(localStorage.getItem('name') != null){
+		document.write('Hoşgeldiniz, '+localStorage.getItem('name'));
+	}
+}
+	
+function showText(){
+	if(localStorage.getItem('email') == null){
+		document.write('<p>Lütfen adınızı ve email adresinizi giriniz.</p>');
+	} else {
+		document.write('<p><strong>Üyelik Emaili:</strong> '+localStorage.getItem('email')+'</p> ');
+	}
+}
+
+function clearAll(){
+	localStorage.clear();   
+	window.location.reload()
+}
+</script>
+</head>
+<body>
+	<div id="container">
+		<header>
+			<div id="logo">
+       	    			<a href="#"><img src="images/20 dakika1.jpg" alt="" /></a>
+            		</div>
+			<h1><span class="blue-text">20 Dakika</span> Dizisi Kişisel Websitesi</h1>
+			<h2><a href="register.html"> Kayıt Ol</a></h2>
+			<h2><a href="login1.html"> Giriş Yap</a></h2>
+			<div id="search">
+                		<form>
+                    			<input type="text" class="search_input" value="Looking for something?"/>
+                        		<input type="image" src="images/search-btn.png" />
+                    		</form>
+   			</div>
+			<div id="social_media">
+               			<a href="#">Follow us</a> &nbsp;&nbsp;
+                		<a href="https://twitter.com/PcEngineer48"><img src="images/icons/twitter_16.png" width="16" height="16" alt="Twitter" /></a>
+                    		<a href="https://www.facebook.com/sedat.c.uygur?ref=tn_tnmn"><img src="images/icons/facebook_16.png" width="16" height="16" alt="Twitter" /></a>
+                    		<a href="https://plus.google.com/105760255827149276350/posts"><img src="images/social04.png" width="16" height="16" alt="Twitter" /></a>
+                    		<a href="www.rss.com"><img src="images/icons/rss_16.png" width="16" height="16" alt="Twitter" /></a>
+                	</div>
+		</header>
+		<nav id="menu">
+			<ul>
+				<li class="menuitem"><a href="index.html">Anasayfa</a></li>
+				<li class="menuitem"><a href="about.html">Hakkımızda</a></li>
+				<li class="menuitem"><a href="browse.html">Gelİştİrİcİler</a></li>
+				<li class="menuitem"><a href="contact.html">Başvuru Formu</a></li>
+				<li class="menuitem"><a href="destek.html">İletİşİm</a></li>
+			</ul>
+			<div id="displayname">
+				<script type="text/javascript">
+					displayName();
+				</script>
+			</div>
+	    	</nav>
+		 
+		 <aside>
+			<nav id="leftmenu">
+			<h3>20 Dakika</h3>
+				<ul>
+					<li><a href="bölüm özeti.html">Bölüm Özetleri</a></li>
+					<li><a href="fragman.html">Fragmanlar</a></li>
+					<li><a href="Olay Günü.html">Olay Günü</a></li>
+					<li><a href="fotograf.html">Fotoğraf Galerisi</a></li>
+					<li><a href="fotograf1.html">Arkaplan Slayt Gösterisi</a></li>
+					<li><a href="audiophoto.html">Dizi Müziğiyle Fotoğraflar</a></li>
+					<li><a href="haberler.html">Haberler</a></li>
+					<li><a href="book.html">Bölüm Günlüğü</a></li>
+					<li><a href="bölümisimleri.html">Tarihi Mekanlar</a></li>
+					<li><a href="künye.html">Künye</a></li>
+					<li><a href="index2.html">3D Künye</a></li>
+				</ul>
+				
+				<div>
+				<br><br>
+				<h3>Aylık Bülten</h3>
+				<script type="text/javascript">
+					showText();
+				</script>
+				<form id="news" onsubmit="initStorage()">
+					Adı: <input type="text" id="name" name="name">
+					E-mail: <input type="email" id="email" name="email">
+					<input type="submit" value="Gönder">
+					<a href="#" onClick="clearAll()">Temizle</a>
+				</form>
+				</div>
+			</nav>
+		</aside>
+		
+		<section>
+			<h2>20 Dakika Dizisi Kişisel Websitesine Hoşgeldiniz!</h2>
+			<h2>Aşk uğruna neler yapılabilir?</h2>
+			<p>Sevdiği kadınla evlenmesi 4 yılını aldı</p>
+			<p>İstediği işi alması 9 yılını</p>
+			<p>Kendi evine sahip olması için 10 yıl çalıştı</p>
+			<p>İki çocuk yetiştirmesi 12</p>
+			<p>Ailesi ile mutlu bir hayat kurması 35 yıl aldı</p>
+			<p>HER ŞEYİNİ KAYBETMESİ....20 DAKİKA</p>
+			<p>Halaskar ailesinin kapısı çalınır bir gece. Polisler içeri dalar ve Ali Halaskar'ın eşi Melek’i cinayete teşebbüsten tutuklar. Ali hiçbir şey yapamaz. Her şey çok hızlı gelişir.</p>
+			<p>Bugüne kadar bir faturayı bile yatırmayı becerememiş tarih öğretmeni Ali, karısının masumiyetini ispatlama peşinde bir yola çıkar. Yol çok uzundur. Fakat Ali'nin sadece 20 DAKİKASI vardır.</p>
+			<p>Ay Yapım'ın yapımcılığını üstlendiği, senaryosunu Kerem Deren ve Pınar Bulut'un  kaleme aldığı 20 Dakika birbirlerini ölesiye seven Ali ve Melek'in aşk öyküsünü anlatıyor.</p> 
+			<p>Serdar Işık'ın yönetmen koltuğunda oturduğu  dizide Tuba Büyüküstün ve İlker Aksum başrolleri paylaşıyor. İpek Bilgin, Bülent Emin Yarar, Cihat Tamer, Ayten Uncuoğlu, Fırat Çelik, Müjde Uzman  ve daha bir çok usta isim bu aşk hikayesi için  biraraya geldi.</p> 
+			<p>Birbirlerini ölesiye seven ve birbirleri uğruna hayatlarını feda eden Ali ve Melek'in aşk öyküsünü anlatan 20 Dakika, Star’da yayınlanacak.</p>
+		</section>
+	</div><!--container end-->
+	<div style="clear;both"></div>
+	<footer>
+		Copyright &copy; 2013, EndLeSs Bilişim
+	</footer>
+</body>
+</html>
